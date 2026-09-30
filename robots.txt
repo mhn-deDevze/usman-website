@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://deft-phoenix-8bb760.netlify.app/sitemap.xml
+Sitemap: https://riyadhrepairingservices.com/sitemap.xml

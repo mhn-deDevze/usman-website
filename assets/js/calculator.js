@@ -1,74 +1,54 @@
 /**
- * مؤسسة سوسن أحمد صالح العسلي للتكييف والتبريد - Susan Ahmed Saleh Al-Asali Establishment
- * Makkah 24351, Saudi Arabia • Tel: 059 837 9204 • WhatsApp: 966598379204
- * Interactive Cost Estimator & Instant Booking
+ * مؤسسة بوابة غرناطة للسباكة والكهرباء والدهانات بالرياض - Bawabat Garnada Est.
+ * شارع خالد بن الوليد، الرياض 13241 | هاتف: 054 660 1168 | واتساب: 966546601168
+ * Interactive Cost Estimator & Instant WhatsApp Booking Engine
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const applianceSelect = document.getElementById('calc-appliance');
+  const serviceCategorySelect = document.getElementById('calc-category') || document.getElementById('calc-appliance');
   const issueSelect = document.getElementById('calc-issue');
   const districtSelect = document.getElementById('calc-district');
   const priceDisplay = document.getElementById('calc-price');
   const bookBtn = document.getElementById('calc-book-btn');
 
-  if (!applianceSelect || !issueSelect || !priceDisplay || !bookBtn) {
+  if (!serviceCategorySelect || !issueSelect || !priceDisplay || !bookBtn) {
     return;
   }
 
-  // Comprehensive Issue options mapping based on appliance (AC, Refrigerators, Washers, Dryers, Dishwashers, Microwaves, Vacuums)
-  const issuesByAppliance = {
-    split_ac: [
-      { id: 'freon_split', text: 'شحن فريون أصلي أمريكي (R410A / R22) وفحص التسريب', textEn: 'Original American Freon recharge (R410A/R22) & leak check', min: 140, max: 220 },
-      { id: 'water_leak', text: 'معالجة تسريب المياه وتراكم الثلج وتنظيف حوض التصريف', textEn: 'Water leak, coil freeze fix & drain pipe clearing', min: 100, max: 180 },
-      { id: 'cooling_loss', text: 'إصلاح ضعف التبريد وخروج هواء دافئ من المكيف السبليت', textEn: 'Cooling loss repair / warm air blowing fix', min: 120, max: 200 },
-      { id: 'deep_cleaning', text: 'غسيل وتنظيف مكيف سبليت كامل بالمضخة والمواد المعقمة', textEn: 'Full indoor/outdoor pressure pump cleaning & sanitization', min: 90, max: 150 },
-      { id: 'capacitor_fan', text: 'استبدال كاباستور المكثف، حساس الحرارة، أو مروحة التبريد', textEn: 'Capacitor, sensor, or outdoor fan motor replacement', min: 130, max: 230 },
-      { id: 'compressor_split', text: 'فحص أو استبدال كمبروسر مكيف سبليت أصلي مع الضمان', textEn: 'Split AC original compressor check & replacement', min: 450, max: 850 },
-      { id: 'general_ac', text: 'كشف فني شامل وفحص ضغط الغاز والكهرباء بمكة', textEn: 'Comprehensive on-site AC technical check & diagnostics in Makkah', min: 50, max: 80 }
+  // Comprehensive services & issue pricing catalog for Riyadh
+  const issuesByCategory = {
+    plumbing: [
+      { id: 'leak_detection', text: 'كشف تسربات المياه إلكترونياً بدون تكسير مع تقرير معتمد', textEn: 'Digital acoustic/thermal water leak detection without breaking tiles', min: 150, max: 280 },
+      { id: 'drain_unclog', text: 'تسليك مجاري وشبكات الصرف الصحي بأحدث أجهزة الضغط والنيتروجين', textEn: 'Drain & sewage pipe unblocking with high-pressure jetting', min: 120, max: 220 },
+      { id: 'sanitary_install', text: 'تركيب وصيانة الأدوات الصحية، الكراسي المعلقة والخلاطات والمغاسل', textEn: 'Sanitary fixtures, wall-hung toilets, faucets & sinks installation', min: 100, max: 190 },
+      { id: 'heater_pump', text: 'تركيب وتصليح السخانات المركزية والعادية ومضخات ضغط المياه (الدينمو)', textEn: 'Water heater (central/regular) & pressure booster pump repair', min: 130, max: 250 },
+      { id: 'pipe_renovation', text: 'تمديد وتجديد شبكات تغذية المياه والصرف للحمامات والمطابخ', textEn: 'Water supply & drainage pipe network installation/renovation', min: 250, max: 650 },
+      { id: 'general_plumbing', text: 'كشف فني فوري وشامل لأعمال السباكة المنزلية بالرياض', textEn: 'Comprehensive on-site plumbing inspection & diagnostics in Riyadh', min: 50, max: 80 }
     ],
-    window_ac: [
-      { id: 'window_cooling', text: 'صيانة ضعف التبريد وتعبئة فريون مكيف شباك أصلي', textEn: 'Window AC cooling repair & original Freon top-up', min: 120, max: 180 },
-      { id: 'window_noise', text: 'معالجة الصوت المرتفع والاهتزاز وتنظيف دورة التبريد', textEn: 'Loud noise & vibration fix with full deep cleaning', min: 90, max: 150 },
-      { id: 'window_parts', text: 'استبدال الثرموستات، مفتاح التشغيل، أو محرك المروحة', textEn: 'Thermostat, selector switch, or dual-shaft fan motor fix', min: 110, max: 190 },
-      { id: 'window_general', text: 'فحص فني شامل لمكيف الشباك بمكة المكرمة', textEn: 'Comprehensive window AC on-site inspection in Makkah', min: 50, max: 70 }
+    electrical: [
+      { id: 'short_circuit', text: 'كشف وإصلاح أعطال التماس الكهربائي ونزول القواطع المفاجئ', textEn: 'Short circuit troubleshooting & breaker tripping repair', min: 130, max: 240 },
+      { id: 'panel_breaker', text: 'تأسيس وصيانة لوحات التوزيع الكهربائية والقواطع الذكية (DB Panel)', textEn: 'Distribution board (DB) panel upgrade & breaker installation', min: 180, max: 350 },
+      { id: 'lighting_led', text: 'تركيب وتوزيع إضاءات الليد، السبوت لايت، النجف والإنارة المخفية', textEn: 'LED strip, spotlights, chandeliers & decorative lighting setup', min: 100, max: 200 },
+      { id: 'switches_sockets', text: 'تركيب وتغيير المفاتيح والأفياش وتمديد خطوط كهرباء جديدة', textEn: 'Switches, power outlets & new electrical wiring extension', min: 90, max: 160 },
+      { id: 'general_electrical', text: 'فحص فني كهربائي شامل للمنازل والفلل بالرياض', textEn: 'Full residential & commercial electrical safety inspection in Riyadh', min: 50, max: 80 }
     ],
-    refrigerator: [
-      { id: 'ref_cooling', text: 'معالجة انقطاع التبريد في الكابينة السفلية أو عدم التجميد بالفريزر', textEn: 'Cooling failure in fridge / no-freeze freezer repair', min: 120, max: 200 },
-      { id: 'ref_freon', text: 'كشف تسريب غاز التبريد وشحن فريون أصلي (R134a / R600a)', textEn: 'Freon gas leak detection & original recharge (R134a/R600a)', min: 150, max: 240 },
-      { id: 'ref_defrost', text: 'تغيير الثرموستات، التايمر، وسخانات إذابة الثلج (نظام No-Frost)', textEn: 'Defrost timer, bimetal thermostat & heating element fix', min: 130, max: 220 },
-      { id: 'ref_compressor', text: 'استبدال كمبروسر الثلاجة الأصلي (انفرتر/عادي) مع الضمان', textEn: 'Original inverter / reciprocating compressor replacement', min: 380, max: 750 },
-      { id: 'ref_general', text: 'كشف إلكتروني شامل وفحص دورة التبريد بالمنزل بمكة', textEn: 'Full in-home digital diagnostic & cooling system check in Makkah', min: 50, max: 80 }
+    painting: [
+      { id: 'interior_paint', text: 'دهان جدران داخلية بأرقى دهانات جوتن والجزيرة (وجهين + معجون)', textEn: 'Premium interior wall painting (Jotun/Jazeera) with putty prep', min: 300, max: 800 },
+      { id: 'crack_damp', text: 'معالجة الرطوبة والتشققات والتقشير وعزل الجدران قبل الدهان', textEn: 'Dampness, crack repair & wall moisture proofing treatment', min: 150, max: 320 },
+      { id: 'wood_marble_panels', text: 'تركيب بديل الخشب وبديل الرخام وبانوهات الفوم الجدارية العصرية', textEn: 'Wood slats, marble PVC sheets & decorative wall moldings setup', min: 220, max: 550 },
+      { id: 'exterior_paint', text: 'دهانات بروفايل وواجهات خارجية مقاومة للعوامل الجوية وحرارة الرياض', textEn: 'Exterior profile painting & weather-resistant villa facades', min: 500, max: 1500 },
+      { id: 'general_paint', text: 'معاينة الموقع ورفع المقاسات وتقديم كتالوج الألوان مجاناً بالرياض', textEn: 'On-site color consultation, measurement & color catalog preview', min: 50, max: 80 }
     ],
-    washing_machine: [
-      { id: 'wash_drain', text: 'صيانة طلمبة الصرف أو معالجة عدم تصريف المياه والعصر', textEn: 'Drain pump repair / Water draining & spin failure', min: 120, max: 190 },
-      { id: 'wash_bearing', text: 'تغيير رولمان بلي ومساعدين الحلة (إلغاء الصوت العالي والاهتزاز)', textEn: 'Drum bearings & shock absorbers replacement (Noise fix)', min: 180, max: 320 },
-      { id: 'wash_board', text: 'فحص وإصلاح كارتة الغسالة الإلكترونية وبرمجة أكواد الأعطال', textEn: 'PCB electronic board repair & error code diagnostic', min: 150, max: 280 },
-      { id: 'wash_lock', text: 'تغيير قفل الباب الإلكتروني وحساس الأمان وصمام المياه', textEn: 'Electronic door lock latch & water inlet valve replacement', min: 90, max: 160 },
-      { id: 'wash_general', text: 'فحص فني شامل بالمنزل لجميع الماركات العالمية بمكة', textEn: 'Comprehensive in-home digital diagnostic checkup in Makkah', min: 50, max: 80 }
-    ],
-    dryer: [
-      { id: 'dryer_heat', text: 'إصلاح هيتر التسخين وحساس الحرارة (النشافة لا تسخن)', textEn: 'Heating element & thermostat temperature sensor repair', min: 140, max: 240 },
-      { id: 'dryer_belt', text: 'تغيير سير الحلة وبكرات الشد ومحرك الدوران للنشافة', textEn: 'Drive belt, idler pulley & drive motor replacement', min: 120, max: 200 },
-      { id: 'dryer_general', text: 'فحص فني شامل وصيانة النشافات ومجففات الملابس بمكة', textEn: 'Comprehensive in-home clothes dryer diagnostics in Makkah', min: 50, max: 80 }
-    ],
-    dishwasher: [
-      { id: 'dish_wash', text: 'صيانة عدم تنظيف الصحون جيداً أو مشاكل مضخة الرش', textEn: 'Sprayer arm & circulation wash pump repair', min: 130, max: 210 },
-      { id: 'dish_drain', text: 'إصلاح تسريب المياه وانسداد الصرف في غسالة الصحون', textEn: 'Water leak & drain blockage fix for dishwasher', min: 120, max: 190 },
-      { id: 'dish_general', text: 'فحص وصيانة غسالات الصحون بمختلف الماركات بمكة', textEn: 'Comprehensive dishwasher inspection & diagnostic in Makkah', min: 60, max: 90 }
-    ],
-    microwave: [
-      { id: 'micro_heat', text: 'إصلاح الماجنترون وعدم التسخين أو الشرر داخل الميكروويف', textEn: 'Magnetron & high voltage diode / heating repair', min: 90, max: 160 },
-      { id: 'micro_tray', text: 'تصليح محرك دوران الطبق، لوحة اللمس وباب الميكروويف', textEn: 'Turntable motor, membrane touch panel & door switch repair', min: 80, max: 140 }
-    ],
-    vacuum: [
-      { id: 'vac_motor', text: 'صيانة محرك المكنسة الكهربائية وضعف قوة الشفط والاهتزاز', textEn: 'Vacuum cleaner motor repair & suction power restoration', min: 70, max: 130 },
-      { id: 'vac_switch', text: 'إصلاح سلك الكهرباء والفيوز ومفتاح التشغيل', textEn: 'Power cord recoil, fuse & power switch fix', min: 50, max: 90 }
+    renovation: [
+      { id: 'bathroom_reno', text: 'ترميم وتجديد دورات المياه والمطابخ بالكامل (سباكة + عزل + بلاط)', textEn: 'Complete bathroom & kitchen renovation (plumbing, waterproofing, tiles)', min: 800, max: 2500 },
+      { id: 'roof_tank_insulation', text: 'عزل مائي وحراري للأسطح وخزانات المياه بمواد معتمدة وضمان 10 سنوات', textEn: 'Waterproofing & thermal insulation for roofs & water tanks (10-yr warranty)', min: 600, max: 1800 },
+      { id: 'home_maintenance', text: 'صيانة دورية متكاملة للمنازل، الفلل والشركات بالرياض', textEn: 'Comprehensive periodic facility & residential maintenance in Riyadh', min: 200, max: 500 }
     ]
   };
 
   const updateIssuesList = () => {
-    const selectedAppliance = applianceSelect.value;
-    const issues = issuesByAppliance[selectedAppliance] || issuesByAppliance.split_ac;
+    const selectedCat = serviceCategorySelect.value;
+    const issues = issuesByCategory[selectedCat] || issuesByCategory.plumbing;
     const isEnglish = document.documentElement.getAttribute('lang') === 'en' || window.location.pathname.includes('/en/');
 
     issueSelect.innerHTML = '';
@@ -97,26 +77,26 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const updateWhatsAppLink = (min, max) => {
-    const applianceName = applianceSelect.selectedOptions[0]?.textContent.trim() || 'الأجهزة والتكييف';
+    const catName = serviceCategorySelect.selectedOptions[0]?.textContent.trim() || 'السباكة والكهرباء';
     const issueName = issueSelect.selectedOptions[0]?.textContent.trim() || 'صيانة عامة';
-    const districtName = districtSelect ? districtSelect.value : 'مكة المكرمة';
+    const districtName = districtSelect ? districtSelect.value : 'الرياض';
 
     const isEnglish = document.documentElement.getAttribute('lang') === 'en' || window.location.pathname.includes('/en/');
     
     let message = '';
     if (isEnglish) {
-      message = `Hello Susan Al-Asali AC & Appliance Repair,\nI would like to request an immediate home repair in Makkah:\n- Appliance / Service: ${applianceName}\n- Issue: ${issueName}\n- District in Makkah: (${districtName})\n- Estimated Cost: ${min} - ${max} SAR approx\n\nPlease confirm technician arrival time.`;
+      message = `Hello Bawabat Garnada Plumbing & Electrical Riyadh,\nI would like to book a certified technician in Riyadh:\n- Service: ${catName}\n- Task / Issue: ${issueName}\n- District in Riyadh: (${districtName})\n- Estimated Cost: ${min} - ${max} SAR approx\n\nPlease confirm availability and dispatch time.`;
     } else {
-      message = `مرحباً مؤسسة سوسن أحمد صالح العسلي للتكييف والتبريد،\nأرغب في حجز فني صيانة منزلي فوري بمكة المكرمة:\n- الجهاز / الخدمة: ${applianceName}\n- العطل المطلوب: ${issueName}\n- الحي بمكة المكرمة: (${districtName})\n- التكلفة التقديرية: ${min} - ${max} ريال\n\nأرجو تأكيد موعد وصول الفني بالضمان المعتمد.`;
+      message = `مرحباً مؤسسة بوابة غرناطة للسباكة والكهرباء بالرياض،\nأرغب في حجز فني متخصص فوري بالرياض:\n- الخدمة المطلوبة: ${catName}\n- نوع العمل / العطل: ${issueName}\n- الحي بالرياض: (${districtName})\n- التكلفة التقديرية: ${min} - ${max} ريال تقريباً\n\nأرجو تأكيد موعد وصول الفني بالضمان المعتمد.`;
     }
 
     const encodedMsg = encodeURIComponent(message);
-    const waUrl = `https://wa.me/966598379204?text=${encodedMsg}`;
+    const waUrl = `https://wa.me/966546601168?text=${encodedMsg}`;
     
     bookBtn.setAttribute('href', waUrl);
   };
 
-  applianceSelect.addEventListener('change', updateIssuesList);
+  serviceCategorySelect.addEventListener('change', updateIssuesList);
   issueSelect.addEventListener('change', calculatePrice);
   if (districtSelect) {
     districtSelect.addEventListener('change', calculatePrice);

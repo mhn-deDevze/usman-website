@@ -1,13 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 76" width="100%" height="100%" text-rendering="geometricPrecision" shape-rendering="geometricPrecision">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 80" width="100%" height="100%" text-rendering="geometricPrecision" shape-rendering="geometricPrecision">
   <defs>
-    <linearGradient id="brandGradEn" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#08182b" />
-      <stop offset="50%" stop-color="#0284c7" />
-      <stop offset="100%" stop-color="#06b6d4" />
+    <linearGradient id="bgGradEn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1a2e" />
+      <stop offset="100%" stop-color="#142c4d" />
     </linearGradient>
-    <linearGradient id="iceGradEn" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="goldGradEn" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24" />
+      <stop offset="100%" stop-color="#d97706" />
+    </linearGradient>
+    <linearGradient id="blueGradEn" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#38bdf8" />
-      <stop offset="100%" stop-color="#0284c7" />
+      <stop offset="100%" stop-color="#2563eb" />
     </linearGradient>
     <filter id="logoShadowEn" x="-10%" y="-10%" width="130%" height="130%">
       <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#08182b" flood-opacity="0.15" />
@@ -15,27 +18,29 @@
   </defs>
 
   <!-- Brand Emblem -->
-  <g transform="translate(6, 6)" filter="url(#logoShadowEn)">
-    <rect x="0" y="0" width="64" height="64" rx="16" fill="#08182b"/>
-    <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="url(#iceGradEn)" stroke-width="1.5"/>
+  <g transform="translate(6, 8)" filter="url(#logoShadowEn)">
+    <rect x="0" y="0" width="64" height="64" rx="16" fill="url(#bgGradEn)"/>
+    <rect x="1.5" y="1.5" width="61" height="61" rx="14.5" fill="none" stroke="url(#goldGradEn)" stroke-width="1.5"/>
     
-    <path d="M32 12 L32 52 M12 32 L52 32 M18 18 L46 46 M18 46 L46 18" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round"/>
-    <circle cx="32" cy="32" r="6" fill="#0284c7"/>
-    <circle cx="32" cy="32" r="2.5" fill="#ffffff"/>
+    <!-- Archway -->
+    <path d="M18 50 V28 Q32 14 46 28 V50" fill="none" stroke="url(#goldGradEn)" stroke-width="2.5" stroke-linecap="round"/>
+    
+    <!-- Water Drop -->
+    <path d="M32 24 C32 24 24 35 24 40 A8 8 0 0 0 40 40 C40 35 32 24 32 24 Z" fill="url(#blueGradEn)" opacity="0.95"/>
+    
+    <!-- Lightning Bolt -->
+    <polygon points="34,26 27,38 33,38 30,48 39,36 33,36" fill="#fef08a"/>
 
-    <polygon points="32,15 34,19 32,23 30,19" fill="#e0f2fe"/>
-    <polygon points="32,41 34,45 32,49 30,45" fill="#e0f2fe"/>
-    <polygon points="15,32 19,34 23,32 19,30" fill="#e0f2fe"/>
-    <polygon points="41,32 45,34 49,32 45,30" fill="#e0f2fe"/>
+    <circle cx="32" cy="18" r="2" fill="#fbbf24"/>
   </g>
 
-  <!-- English Business Name Only -->
-  <g transform="translate(84, 0)">
-    <text x="0" y="32" font-family="'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16.5" font-weight="800" fill="#08182b" letter-spacing="-0.3">
-      Susan Ahmed Saleh Al-Asali Est.
+  <!-- English Typography -->
+  <g transform="translate(82, 0)">
+    <text x="0" y="35" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="20" font-weight="900" fill="#0b1a2e" letter-spacing="-0.3">
+      BAWABAT GARNADA
     </text>
-    <text x="0" y="58" font-family="'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14.5" font-weight="700" fill="#0284c7" letter-spacing="-0.2">
-      Air Conditioning &amp; Refrigeration
+    <text x="0" y="59" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12.5" font-weight="700" fill="#d97706" letter-spacing="0.5">
+      PLUMBING &bull; ELECTRICAL &bull; PAINTING RIYADH
     </text>
   </g>
 </svg>

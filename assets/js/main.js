@@ -1,11 +1,11 @@
 /**
- * مؤسسة سوسن أحمد صالح العسلي للتكييف والتبريد - Main Interactive & Parallax Engine
- * Susan Ahmed Saleh Al-Asali Establishment for AC & Appliance Repair - Makkah
- * Tel: 059 837 9204 | WhatsApp: 966598379204
+ * مؤسسة بوابة غرناطة للسباكة والكهرباء والدهانات بالرياض - Main Interactive & Animation Engine
+ * Bawabat Garnada Est. - Plumbing, Electrical, Painting & Renovation Services
+ * شارع خالد بن الوليد، الرياض 13241 | هاتف: 054 660 1168 | واتساب: 966546601168
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Navigation Menu Toggle with Frosted Backdrop
+  // 1. Mobile Navigation Menu Toggle with Backdrop
   const mobileToggle = document.querySelector('.mobile-toggle');
   const navLinks = document.querySelector('.nav-links');
 
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 3. Staggered Scroll Reveal Animations
   const revealElements = document.querySelectorAll(
-    '.reveal-up, .reveal-fade, .service-card, .review-card, .process-card, .trust-item, .brand-card, .gallery-card, .nh-card, .calc-card, .warranty-banner'
+    '.reveal-up, .reveal-fade, .service-card, .review-card, .process-card, .trust-item, .brand-card, .gallery-card, .nh-card, .calc-card, .warranty-banner, .feature-box'
   );
   
   if ('IntersectionObserver' in window && revealElements.length > 0) {
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // 6. Quick Symptom Chips click-to-WhatsApp
+  // 6. Quick Service Chips click-to-WhatsApp
   const symptomChips = document.querySelectorAll('.symptom-chip, .chip');
   symptomChips.forEach(chip => {
     chip.addEventListener('click', () => {
@@ -148,28 +148,28 @@ document.addEventListener('DOMContentLoaded', () => {
       const symptomText = chip.getAttribute('data-symptom') || chip.textContent.trim();
       let message = '';
       if (isEnglish) {
-        message = `Hello Susan Al-Asali Establishment for AC & Appliance Repair,\nI have an issue with (${symptomText}) in Makkah and need an immediate technician without prior appointment.`;
+        message = `Hello Bawabat Garnada Plumbing & Electrical Riyadh,\nI need immediate assistance with (${symptomText}) in Riyadh. Please confirm technician availability.`;
       } else {
-        message = `مرحباً مؤسسة سوسن أحمد صالح العسلي للتكييف والتبريد،\nأواجه مشكلة في (${symptomText}) بمكة المكرمة وأحتاج فني صيانة بالمنزل فوراً بضمان معتمد.`;
+        message = `مرحباً مؤسسة بوابة غرناطة للسباكة والكهرباء بالرياض،\nأحتاج فني متخصص فوراً لخدمة (${symptomText}) بالرياض بضمان معتمد. أرجو التواصل وتأكيد الموعد.`;
       }
-      const url = `https://wa.me/966598379204?text=${encodeURIComponent(message)}`;
+      const url = `https://wa.me/966546601168?text=${encodeURIComponent(message)}`;
       window.open(url, '_blank', 'noopener,noreferrer');
     });
   });
 
-  // 7. Neighborhood Card Click -> Book for that specific neighborhood
+  // 7. Riyadh Neighborhood Card Click -> WhatsApp Booking for that specific district
   const nhCards = document.querySelectorAll('.nh-card[data-district]');
   nhCards.forEach(card => {
     card.addEventListener('click', () => {
-      const districtName = card.getAttribute('data-district') || 'الشوقية';
+      const districtName = card.getAttribute('data-district') || 'العقيق';
       const isEnglish = document.documentElement.getAttribute('lang') === 'en' || window.location.pathname.includes('/en/');
       let message = '';
       if (isEnglish) {
-        message = `Hello Susan Al-Asali Establishment for AC & Appliance Repair,\nI would like to request an in-home technician in (${districtName}), Makkah.`;
+        message = `Hello Bawabat Garnada Est.,\nI would like to request an on-site technician (plumber / electrician / painter) in (${districtName}), Riyadh.`;
       } else {
-        message = `مرحباً مؤسسة سوسن أحمد صالح العسلي للتكييف والتبريد،\nأرغب في طلب فني صيانة لمنزلي في حي (${districtName}) بمكة المكرمة. أرجو تأكيد موعد الوصول.`;
+        message = `مرحباً مؤسسة بوابة غرناطة للسباكة والكهرباء،\nأرغب في طلب فني صيانة لمنزلي في حي (${districtName}) بالرياض (سباكة / كهرباء / دهانات). أرجو تأكيد موعد الوصول.`;
       }
-      const url = `https://wa.me/966598379204?text=${encodeURIComponent(message)}`;
+      const url = `https://wa.me/966546601168?text=${encodeURIComponent(message)}`;
       window.open(url, '_blank', 'noopener,noreferrer');
     });
   });
