@@ -49,8 +49,6 @@
         "image": "https://riyadhrepairingservices.com/assets/images/hero-plumbing.jpg",
         "description": "مؤسسة بوابة غرناطة للتجارة والصيانة متخصصة في خدمات السباكة والكهرباء والدهانات والترميم والصيانة المنزلية المتكاملة بالرياض.",
         "telephone": "+966546601168",
-        "priceRange": "SAR 50 - 2500",
-        "currenciesAccepted": "SAR",
         "paymentAccepted": "Cash, Credit Card, Mada, Bank Transfer",
         "address": {
           "@type": "PostalAddress",
@@ -348,7 +346,10 @@
               <li>تأسيس وتجديد شبكات تغذية المياه والمحابس</li>
             </ul>
             <div class="service-footer">
-              <div class="price-tag">تبدأ من <strong>50 ريال</strong></div>
+              <div class="service-guarantee-pill">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>ضمان رسمي معتمد</span>
+              </div>
               <a href="plumbing.html" class="btn btn-outline">تفاصيل الخدمة &larr;</a>
             </div>
           </div>
@@ -375,7 +376,10 @@
               <li>تمديد خطوط كهرباء إضافية للمطابخ والمكيفات بأمان</li>
             </ul>
             <div class="service-footer">
-              <div class="price-tag">تبدأ من <strong>50 ريال</strong></div>
+              <div class="service-guarantee-pill">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>أمان وجودة معتمدة</span>
+              </div>
               <a href="electrical.html" class="btn btn-outline">تفاصيل الخدمة &larr;</a>
             </div>
           </div>
@@ -402,7 +406,10 @@
               <li>تشطيب وترميم كامل للفلل، الشقق والمكاتب</li>
             </ul>
             <div class="service-footer">
-              <div class="price-tag">تبدأ من <strong>150 ريال</strong></div>
+              <div class="service-guarantee-pill">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                <span>خامات أصلية 100%</span>
+              </div>
               <a href="painting.html" class="btn btn-outline">تفاصيل الخدمة &larr;</a>
             </div>
           </div>
@@ -411,14 +418,14 @@
     </div>
   </section>
 
-  <!-- Interactive Instant Cost Estimator Section -->
-  <section class="section calc-section" id="cost-calculator">
+  <!-- Interactive Instant Technician Booking & Dispatch Section -->
+  <section class="section calc-section" id="quick-booking">
     <div class="container">
       <div class="calc-card reveal-up">
         <div class="calc-header">
-          <span class="sub-badge">حاسبة الأسعار التقديرية</span>
-          <h2>احسب تكلفة الخدمة واحجز موعدك فوراً بالرياض</h2>
-          <p>اختر نوع الخدمة والمشكلة والحي للحصول على تقدير فوري للتكلفة وحجز الفني عبر الواتساب مباشرة.</p>
+          <span class="sub-badge">حجز فني واستشارة فورية</span>
+          <h2>طلب فني متخصص لموقعك بالرياض في خطوات بسيطة</h2>
+          <p>اختر نوع الخدمة والمشكلة والحي لإرسال طلب مباشر لفريق العمل والتنسيق الفوري عبر الواتساب.</p>
         </div>
 
         <form class="calc-form" id="pricing-form" onsubmit="return false;">
@@ -465,14 +472,14 @@
 
           <div class="calc-result-box">
             <div class="result-info">
-              <span class="result-label">التكلفة التقديرية (شاملة الفحص):</span>
-              <div class="result-price" id="calc-price">150 - 280 ريال تقريباً</div>
-              <span class="result-note">* السعر النهائي يحدده الفني بعد المعاينة الدقيقة وحسب قطع الغيار الأصلية المطلوبة</span>
+              <span class="result-label">حالة الفني وسرعة الاستجابة:</span>
+              <div class="result-price" id="calc-price">⚡ الفني جاهز ومتاح للتحرك الفوري</div>
+              <span class="result-note">* فحص فني دقيق بأحدث الأجهزة • ضمان رسمي معتمد على كافة أعمال الصيانة</span>
             </div>
             <div class="result-action">
               <a href="https://wa.me/966546601168" id="calc-book-btn" class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener noreferrer">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.983.54 1.848.828 2.796.828 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.766-5.77-5.766zm9.969 5.768c0 5.485-4.464 9.95-9.969 9.95-1.745 0-3.385-.45-4.821-1.238l-5.21 1.365 1.393-5.086c-.887-1.492-1.362-3.216-1.362-4.991 0-5.486 4.466-9.95 9.969-9.95 5.504 0 9.969 4.464 9.969 9.95z"/></svg>
-                <span>تأكيد الحجز عبر واتساب الآن</span>
+                <span>تأكيد طلب الفني عبر واتساب الآن</span>
               </a>
             </div>
           </div>
@@ -519,10 +526,10 @@
 
         <div class="feature-box reveal-up">
           <div class="feature-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
           </div>
-          <h3>شفافية تامة وأسعار منافسة</h3>
-          <p>تسعير واضح ومحدد مسبقاً قبل بدء العمل دون أي تكاليف خفية، مع تقديم فواتير وضمانات معتمدة على الأعمال.</p>
+          <h3>شفافية كاملة وضمانات معتمدة</h3>
+          <p>شرح فني دقيق قبل بدء العمل مع تقديم فواتير نظامية وشهادات ضمان خطي موثقة على كافة الخدمات وقطع الغيار.</p>
         </div>
       </div>
     </div>

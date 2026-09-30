@@ -284,4 +284,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
   });
+
+  // 12. Interactive Radial Spotlight / Cursor Glow on Bespoke Cards
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const spotlightCards = document.querySelectorAll(
+      '.service-card, .feature-card-alt, .workflow-card, .video-card, .calc-card, .district-detail-card, .review-card, .nh-card'
+    );
+    
+    spotlightCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }
 });
+
+
