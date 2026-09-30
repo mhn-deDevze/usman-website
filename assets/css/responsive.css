@@ -1,0 +1,619 @@
+/* ==========================================================================
+   مؤسسة سوسن أحمد صالح العسلي للتكييف والتبريد - Susan Al-Asali Establishment
+   Responsive Breakpoints, Mobile Optimization & Mobile Layout Engine
+   ========================================================================== */
+
+/* Large Tablets & Small Laptops (max-width: 1024px) */
+@media (max-width: 1024px) {
+  .nav-inner {
+    height: 64px;
+    gap: 10px;
+  }
+
+  .logo-img {
+    height: 40px;
+    min-width: 150px;
+    max-width: 210px;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px clamp(16px, 4vw, 32px) 30px;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 24px 48px rgba(8, 24, 43, 0.15);
+    transform: translateY(-120%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.25s ease, visibility 0.25s;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    padding: 12px 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    border: 1px solid #f1f5f9;
+    background: #f8fafc;
+    color: var(--primary-navy);
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: var(--primary-blue-light);
+    border-color: rgba(29, 78, 216, 0.2);
+    color: var(--primary-blue);
+  }
+
+  /* Hide CTA action buttons from header on tablet/mobile so logo has maximum room */
+  .nav-cta .btn,
+  .nav-actions .btn,
+  .nav-cta .btn-call,
+  .nav-cta .btn-call-header,
+  .nav-cta .btn-whatsapp,
+  .nav-actions .btn-call,
+  .nav-actions .btn-call-header,
+  .nav-actions .btn-whatsapp {
+    display: none !important;
+  }
+
+  .mobile-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+  }
+
+  .hero-grid,
+  .subpage-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .hero-visual {
+    max-width: 560px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-img-box img {
+    height: 360px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .warranty-banner {
+    grid-template-columns: 1fr !important;
+    gap: 28px;
+  }
+
+  .brands-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .neighborhoods-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+  }
+}
+
+/* Tablets & Mobile Phones (max-width: 768px) */
+@media (max-width: 768px) {
+  /* High-Impact Mobile Hero Section with Photographic Background & Glassmorphic Layering */
+  .hero-section {
+    background: 
+      linear-gradient(180deg, rgba(8, 24, 43, 0.88) 0%, rgba(8, 24, 43, 0.96) 100%),
+      url('../images/hero-ac.jpg') center/cover no-repeat;
+    color: #ffffff;
+    padding: clamp(34px, 5.5vw, 52px) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    position: relative;
+  }
+
+  .hero-section::before {
+    display: none;
+  }
+
+  .hero-title {
+    color: #ffffff;
+    font-size: 1.85rem;
+    line-height: 1.35;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  }
+
+  .hero-title .highlight {
+    color: #38bdf8;
+    background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero-desc {
+    color: #e2e8f0;
+    font-size: 0.94rem;
+    line-height: 1.7;
+    font-weight: 500;
+  }
+
+  .hero-desc strong {
+    color: #ffffff;
+    font-weight: 800;
+  }
+
+  .policy-disclosure-banner {
+    background: rgba(13, 38, 69, 0.88);
+    border-color: rgba(56, 189, 248, 0.35);
+    color: #e2e8f0;
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  }
+
+  .policy-disclosure-banner svg {
+    color: #38bdf8;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    border-top-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .stat-card,
+  .stat-item {
+    background: rgba(13, 38, 69, 0.82);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    padding: 10px 12px;
+  }
+
+  .stat-num {
+    color: #ffffff !important;
+    text-shadow: 0 0 12px rgba(56, 189, 248, 0.4);
+    font-size: 1.4rem;
+  }
+
+  .stat-label {
+    color: #cbd5e1 !important;
+    font-size: 0.82rem;
+  }
+
+  .section {
+    padding: clamp(38px, 5.5vw, 56px) 0;
+  }
+
+  .section-header {
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-size: 1.65rem;
+    line-height: 1.35;
+  }
+
+  .section-subtitle,
+  .section-desc {
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .service-card {
+    padding: 20px 16px;
+  }
+
+  .service-card-img-wrap img {
+    height: 200px;
+  }
+
+  /* Warranty Banner Full Readability & Responsiveness */
+  .warranty-banner {
+    grid-template-columns: 1fr !important;
+    padding: 22px 16px !important;
+    gap: 20px !important;
+    border-radius: var(--radius-lg) !important;
+    margin-top: 24px !important;
+  }
+
+  .warranty-title,
+  .warranty-banner h2 {
+    font-size: 1.35rem !important;
+    line-height: 1.4 !important;
+    color: #ffffff !important;
+    margin-bottom: 10px !important;
+  }
+
+  .warranty-desc,
+  .warranty-banner p {
+    font-size: 0.92rem !important;
+    line-height: 1.65 !important;
+    color: #cbd5e1 !important;
+    margin-bottom: 16px !important;
+  }
+
+  .warranty-points {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .warranty-point {
+    font-size: 0.88rem !important;
+    line-height: 1.55 !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .warranty-point svg {
+    width: 18px !important;
+    height: 18px !important;
+    flex-shrink: 0 !important;
+    margin-top: 2px !important;
+  }
+
+  .warranty-point span {
+    color: #e2e8f0 !important;
+    word-break: break-word !important;
+  }
+
+  .calc-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .calc-result-box {
+    flex-direction: column;
+    text-align: center;
+    align-items: stretch;
+    padding: 20px 16px;
+    gap: 14px;
+  }
+
+  .calc-result-box .btn {
+    width: 100%;
+  }
+
+  .google-rating-banner,
+  .google-badge-hero {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 20px 16px;
+    gap: 16px;
+  }
+
+  .gbp-stars-wrap {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .cta-banner {
+    padding: 24px 16px !important;
+    border-radius: var(--radius-lg) !important;
+    margin: 32px 0 !important;
+  }
+
+  .cta-banner-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 18px;
+  }
+
+  .cta-text h2,
+  .cta-title {
+    font-size: 1.35rem !important;
+    line-height: 1.35 !important;
+    color: #ffffff !important;
+  }
+
+  .cta-text p,
+  .cta-desc {
+    font-size: 0.92rem !important;
+    line-height: 1.6 !important;
+    color: #cbd5e1 !important;
+  }
+
+  .cta-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+  }
+
+  .mobile-bottom-bar {
+    display: block;
+    padding: 5px 10px max(6px, env(safe-area-inset-bottom));
+  }
+
+  .mobile-bottom-grid,
+  .mob-bar-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .mob-cta-btn {
+    height: 38px;
+    padding: 4px 8px;
+    font-size: 0.82rem;
+    gap: 6px;
+    border-radius: 8px;
+    font-weight: 700;
+  }
+
+  .mob-cta-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  /* Hide floating circular action buttons on mobile to avoid screen clutter and overlapping with bottom bar */
+  .floating-actions {
+    display: none !important;
+  }
+
+  .scroll-top-btn {
+    bottom: calc(52px + env(safe-area-inset-bottom, 0px));
+    right: 12px;
+    width: 36px;
+    height: 36px;
+  }
+
+  html[dir="ltr"] .scroll-top-btn {
+    left: 12px;
+    right: auto;
+  }
+
+  body {
+    padding-bottom: calc(50px + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Mobile Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .top-bar {
+    display: none;
+  }
+
+  .site-header {
+    background: rgba(255, 255, 255, 0.98);
+  }
+
+  .nav-inner {
+    height: 56px;
+    gap: 8px;
+    padding: 0 6px;
+  }
+
+  .logo-img {
+    height: 36px;
+    min-width: 120px;
+    max-width: 165px;
+  }
+
+  .nav-cta .btn,
+  .nav-actions .btn,
+  .nav-cta .btn-call,
+  .nav-cta .btn-call-header,
+  .nav-cta .btn-whatsapp,
+  .nav-actions .btn-call,
+  .nav-actions .btn-call-header,
+  .nav-actions .btn-whatsapp {
+    display: none !important;
+  }
+
+  .lang-switcher {
+    padding: 5px 9px;
+    font-size: 0.78rem;
+    border-radius: 16px;
+    gap: 4px;
+  }
+
+  .mobile-toggle {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+  }
+
+  .hero-title {
+    font-size: 1.58rem;
+    line-height: 1.35;
+  }
+
+  .hero-desc {
+    font-size: 0.91rem;
+    line-height: 1.65;
+  }
+
+  .hero-badge-wrap {
+    gap: 6px;
+  }
+
+  .no-appointment-badge,
+  .service-area-pill,
+  .hours-tag-active {
+    font-size: 0.76rem;
+    padding: 4px 10px;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .hero-cta-group .btn {
+    flex: 1;
+    min-width: 0;
+    height: 42px;
+    padding: 8px 6px;
+    font-size: 0.84rem;
+    font-weight: 700;
+    border-radius: 10px;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  .hero-cta-group .btn svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .stat-card,
+  .stat-item {
+    padding: 8px 10px;
+  }
+
+  .stat-num {
+    font-size: 1.3rem;
+  }
+
+  .hero-img-box img {
+    height: 280px;
+  }
+
+  .hero-live-badge {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    padding: 8px 10px;
+  }
+
+  .badge-icon {
+    font-size: 1.3rem;
+  }
+
+  .badge-text {
+    font-size: 0.76rem;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .section-title {
+    font-size: 1.55rem;
+  }
+
+  .section-desc {
+    font-size: 0.91rem;
+  }
+
+  .service-img-wrap,
+  .gallery-img-wrap {
+    height: 200px;
+  }
+
+  .service-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .service-footer .btn {
+    width: 100%;
+  }
+
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .neighborhoods-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .footer-legal-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
+/* Extra Small Phones (max-width: 360px) */
+@media (max-width: 360px) {
+  .logo-img {
+    max-width: 145px;
+    min-width: 110px;
+  }
+
+  .hero-title {
+    font-size: 1.42rem;
+  }
+
+  .stat-num {
+    font-size: 1.2rem;
+  }
+
+  .mob-cta-btn {
+    font-size: 0.78rem;
+    padding: 4px 6px;
+    gap: 4px;
+    height: 36px;
+  }
+}
