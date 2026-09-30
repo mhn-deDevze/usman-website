@@ -167,8 +167,38 @@
   <!-- Main Navigation Header -->
   <header class="site-header" id="site-header">
     <div class="container nav-inner">
-      <a href="index.html" class="brand-logo" aria-label="الصفحة الرئيسية لمؤسسة بوابة غرناطة">
-        <img src="assets/images/logo.svg" alt="مؤسسة بوابة غرناطة للسباكة والكهرباء والدهانات بالرياض" class="logo-img" width="260" height="42">
+      <a href="index.html" class="brand-logo" aria-label="مؤسسة بوابة غرناطة للسباكة والكهرباء والدهانات بالرياض">
+        <span class="brand-emblem">
+          <svg viewBox="0 0 64 64" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg" class="emblem-svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="shieldGradAr" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#071424" />
+                <stop offset="50%" stop-color="#0f2b4e" />
+                <stop offset="100%" stop-color="#1d4ed8" />
+              </linearGradient>
+              <linearGradient id="goldGradAr" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fde047" />
+                <stop offset="60%" stop-color="#f59e0b" />
+                <stop offset="100%" stop-color="#d97706" />
+              </linearGradient>
+              <linearGradient id="waterGradAr" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8" />
+                <stop offset="100%" stop-color="#0284c7" />
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#shieldGradAr)" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
+            <rect x="4.5" y="4.5" width="55" height="55" rx="13.5" fill="none" stroke="url(#goldGradAr)" stroke-width="1.4" stroke-opacity="0.9"/>
+            <path d="M 18 50 V 29 C 18 19 46 19 46 29 V 50" stroke="url(#goldGradAr)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M 23 50 V 31 C 23 23 41 23 41 31 V 50" stroke="rgba(253, 224, 71, 0.45)" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M 32 23 C 32 23 23 34 23 39.5 C 23 44.5 27 48 32 48 C 37 48 41 44.5 41 39.5 C 41 34 32 23 32 23 Z" fill="url(#waterGradAr)"/>
+            <polygon points="34,25 26,37 33,37 30,47 40,34 33.5,34" fill="#fbbf24" stroke="#d97706" stroke-width="0.8"/>
+            <circle cx="32" cy="14" r="2.5" fill="#fde047"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-title">بوابة غرناطة</span>
+          <span class="brand-tag">سباكة • كهرباء • دهانات</span>
+        </span>
       </a>
 
       <nav class="main-nav" aria-label="القائمة الرئيسية">
@@ -192,11 +222,11 @@
         <a href="en/index.html" class="lang-pill" title="English Version">
           <span>EN</span>
         </a>
-        <a href="tel:+966546601168" class="btn btn-call-header">
+        <a href="tel:+966546601168" class="btn btn-call-header" title="اتصال هاتفي مباشر">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span>054 660 1168</span>
         </a>
-        <a href="https://wa.me/966546601168" class="btn btn-whatsapp-header" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/966546601168" class="btn btn-whatsapp-header" target="_blank" rel="noopener noreferrer" title="مراسلة واتساب فورية">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.983.54 1.848.828 2.796.828 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.766-5.77-5.766zm9.969 5.768c0 5.485-4.464 9.95-9.969 9.95-1.745 0-3.385-.45-4.821-1.238l-5.21 1.365 1.393-5.086c-.887-1.492-1.362-3.216-1.362-4.991 0-5.486 4.466-9.95 9.969-9.95 5.504 0 9.969 4.464 9.969 9.95z"/></svg>
           <span>واتساب</span>
         </a>
@@ -207,8 +237,11 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section" id="hero">
+  <!-- Hero Section with Ambient Parallax -->
+  <section class="hero-section ambient-aurora-bg" id="hero">
+    <div class="parallax-orb parallax-orb-1" data-parallax-speed="0.12"></div>
+    <div class="parallax-orb parallax-orb-2" data-parallax-speed="-0.1"></div>
+
     <div class="container hero-grid">
       <div class="hero-content reveal-up">
         <div class="badge-pill">
@@ -271,7 +304,7 @@
         </div>
       </div>
 
-      <!-- Hero Visual Showcase -->
+      <!-- Hero Visual Showcase with Floating 3D Spec Badges -->
       <div class="hero-visual reveal-fade">
         <div class="hero-img-box">
           <img src="assets/images/hero-plumbing.jpg" alt="فني سباكة متخصص مؤسسة بوابة غرناطة بالرياض" width="600" height="420" loading="eager">
@@ -285,6 +318,63 @@
           <div class="hero-trust-tag">
             <span class="star-icon">★ 4.9</span>
             <span>أكثر من 340+ تقييم معتمد</span>
+          </div>
+        </div>
+
+        <!-- Layered Floating 3D Parallax Spec Badges -->
+        <div class="hero-floating-badges">
+          <div class="hero-spec-badge badge-top-left" data-parallax-speed="0.06">
+            <div class="badge-icon-box gold">★</div>
+            <div class="badge-texts">
+              <strong>4.9 / 5 تقييم معتمد</strong>
+              <span>1200+ مشروع صيانة منجز</span>
+            </div>
+          </div>
+
+          <div class="hero-spec-badge badge-bottom-right" data-parallax-speed="-0.05">
+            <div class="badge-icon-box green">🛡️</div>
+            <div class="badge-texts">
+              <strong>ضمان خطي رسمي</strong>
+              <span>معتمد على كافة الأعمال</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Riyadh Dispatch Radar Ribbon -->
+  <section class="radar-ribbon" aria-label="رادار التوزيع الميداني لفرق الصيانة بالرياض">
+    <div class="container radar-inner">
+      <div class="radar-status-badge">
+        <span class="radar-beacon"></span>
+        <span>رادار الميدان مباشر</span>
+      </div>
+      <div class="radar-marquee-wrap">
+        <div class="radar-marquee-track">
+          <div class="radar-item">
+            <span class="radar-tag">💧 سباكة</span>
+            <span>فريق كشف التسربات وشبكات المياه: متواجد بحي الملقا وحطين (زمن وصول 25 دقيقة)</span>
+          </div>
+          <span class="radar-sep">•</span>
+          <div class="radar-item">
+            <span class="radar-tag emergency">⚡ طوارئ</span>
+            <span>فنيو الكهرباء والالتماس: جاهزون للانطلاق الفوري بحي الياسمين والنرجس والعقيق</span>
+          </div>
+          <span class="radar-sep">•</span>
+          <div class="radar-item">
+            <span class="radar-tag">🎨 دهانات</span>
+            <span>معلمو الدهانات وبديل الخشب والرخام: متاح للمعاينة المجانية وتحديد الكميات بالرياض</span>
+          </div>
+          <span class="radar-sep">•</span>
+          <div class="radar-item">
+            <span class="radar-tag gold">🛡️ ضمان</span>
+            <span>كافة أعمال السباكة والكهرباء والدهانات مشمولة بضمان رسمي وفاتورة معتمدة</span>
+          </div>
+          <span class="radar-sep">•</span>
+          <div class="radar-item">
+            <span class="radar-tag">📍 المقر</span>
+            <span>شارع خالد بن الوليد، الرياض 13241 | تغطية سريعة لكافة أحياء شمال وشرق ووسط الرياض</span>
           </div>
         </div>
       </div>
@@ -546,85 +636,93 @@
         </p>
       </div>
 
+      <!-- Interactive District Filter Tabs -->
+      <div class="district-filter-tabs">
+        <button type="button" class="filter-tab-btn active" data-filter="all">جميع الأحياء</button>
+        <button type="button" class="filter-tab-btn" data-filter="north">شمال الرياض</button>
+        <button type="button" class="filter-tab-btn" data-filter="east">شرق الرياض</button>
+        <button type="button" class="filter-tab-btn" data-filter="central">وسط الرياض</button>
+      </div>
+
       <div class="nh-grid">
-        <div class="nh-card reveal-up" data-district="العقيق">
+        <div class="nh-card reveal-up" data-district="العقيق" data-region="north">
           <div class="nh-badge">شمال الرياض</div>
           <h3 class="nh-name">حي العقيق</h3>
           <p class="nh-desc">خدمات سباكة وكهرباء ودهانات سريعة بحي العقيق والمناطق المحيطة.</p>
           <span class="nh-cta">حجز فني بحي العقيق &larr;</span>
         </div>
 
-        <div class="nh-card reveal-up" data-district="الربيع">
+        <div class="nh-card reveal-up" data-district="الربيع" data-region="north">
           <div class="nh-badge">شمال الرياض</div>
           <h3 class="nh-name">حي الربيع</h3>
           <p class="nh-desc">صيانة فورية وكشف تسربات المياه وتمديدات كهربائية بحي الربيع.</p>
           <span class="nh-cta">حجز فني بحي الربيع &larr;</span>
         </div>
 
-        <div class="nh-card reveal-up" data-district="الملقا">
+        <div class="nh-card reveal-up" data-district="الملقا" data-region="north">
           <div class="nh-badge">شمال الرياض</div>
           <h3 class="nh-name">حي الملقا</h3>
           <p class="nh-desc">أعمال تشطيب، سباكة، كهرباء ودهانات للفلل والشقق بحي الملقا.</p>
           <span class="nh-cta">حجز فني بحي الملقا &larr;</span>
         </div>
 
-        <div class="nh-card reveal-up" data-district="المروج">
+        <div class="nh-card reveal-up" data-district="المروج" data-region="north">
           <div class="nh-badge">شمال الرياض</div>
           <h3 class="nh-name">حي المروج</h3>
           <p class="nh-desc">خدمات صيانة منزلية وتسليك مجاري وفحص قواطع الكهرباء بالمروج.</p>
           <span class="nh-cta">حجز فني بحي المروج &larr;</span>
         </div>
 
-        <div class="nh-card reveal-up" data-district="النرجس">
+        <div class="nh-card reveal-up" data-district="النرجس" data-region="north">
           <div class="nh-badge">شمال الرياض</div>
           <h3 class="nh-name">حي النرجس</h3>
           <p class="nh-desc">تأسيس وتجديد شبكات المياه والكهرباء والدهانات بحي النرجس.</p>
           <span class="nh-cta">حجز فني بحي النرجس &larr;</span>
         </div>
 
-        <div class="nh-card reveal-up" data-district="القيروان">
+        <div class="nh-card reveal-up" data-district="القيروان" data-region="north">
           <div class="nh-badge">شمال الرياض</div>
           <h3 class="nh-name">حي القيروان</h3>
           <p class="nh-desc">فنيون متخصصون لترميم وصيانة منازل وفلل حي القيروان وضواحيه.</p>
           <span class="nh-cta">حجز فني بحي القيروان &larr;</span>
         </div>
 
-        <div class="nh-card reveal-up" data-district="الياسمين">
+        <div class="nh-card reveal-up" data-district="الياسمين" data-region="north">
           <div class="nh-badge">شمال الرياض</div>
           <h3 class="nh-name">حي الياسمين</h3>
           <p class="nh-desc">كشف تسربات وتركيب أدوات صحية وإنارة ليد حديثة بحي الياسمين.</p>
           <span class="nh-cta">حجز فني بحي الياسمين &larr;</span>
         </div>
 
-        <div class="nh-card reveal-up" data-district="النخيل">
+        <div class="nh-card reveal-up" data-district="النخيل" data-region="north">
           <div class="nh-badge">شمال الرياض</div>
           <h3 class="nh-name">حي النخيل</h3>
           <p class="nh-desc">أعمال دهانات راقية وبديل رخام وخشب وصيانة سباكة بحي النخيل.</p>
           <span class="nh-cta">حجز فني بحي النخيل &larr;</span>
         </div>
 
-        <div class="nh-card reveal-up" data-district="الصحافة">
+        <div class="nh-card reveal-up" data-district="الصحافة" data-region="north">
           <div class="nh-badge">شمال الرياض</div>
           <h3 class="nh-name">حي الصحافة</h3>
           <p class="nh-desc">صيانة دورية ومعالجة الأعطال الطارئة للكهرباء والسباكة بحي الصحافة.</p>
           <span class="nh-cta">حجز فني بحي الصحافة &larr;</span>
         </div>
 
-        <div class="nh-card reveal-up" data-district="الخالدية">
+        <div class="nh-card reveal-up" data-district="الخالدية" data-region="central">
           <div class="nh-badge">وسط الرياض</div>
           <h3 class="nh-name">حي الخالدية</h3>
           <p class="nh-desc">خدمات ترميم وتسليك وصيانة متكاملة للمنازل والمنشآت بالخالدية.</p>
           <span class="nh-cta">حجز فني بحي الخالدية &larr;</span>
         </div>
 
-        <div class="nh-card reveal-up" data-district="الغدير">
+        <div class="nh-card reveal-up" data-district="الغدير" data-region="north">
           <div class="nh-badge">شمال الرياض 13311</div>
           <h3 class="nh-name">حي الغدير</h3>
           <p class="nh-desc">حلول هندسية وفنية متقدمة للسباكة والكهرباء والدهان بحي الغدير.</p>
           <span class="nh-cta">حجز فني بحي الغدير &larr;</span>
         </div>
 
-        <div class="nh-card reveal-up" data-district="غرناطة">
+        <div class="nh-card reveal-up" data-district="غرناطة" data-region="east">
           <div class="nh-badge">شرق الرياض</div>
           <h3 class="nh-name">حي غرناطة وشارع خالد بن الوليد</h3>
           <p class="nh-desc">مقرنا الرئيسي؛ أسرع استجابة خلال دقائق لكافة الخدمات بحي غرناطة.</p>
@@ -634,6 +732,90 @@
 
       <div class="text-center mt-4">
         <a href="riyadh-districts.html" class="btn btn-secondary">استعراض كافة أحياء الرياض المخدومة &larr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Master 4-Step Execution Workflow with Illuminated Conduit -->
+  <section class="section workflow-section" id="workflow">
+    <div class="container">
+      <div class="section-head text-center reveal-up">
+        <span class="sub-badge">منهجية العمل والضمان</span>
+        <h2 class="section-title">مسار تنفيذ احترافي يضمن أعلى معايير الدقة والسلامة</h2>
+        <p class="section-desc">
+          نتبع بروتوكولاً هندسياً صارماً في تنفيذ كافة خدمات السباكة والكهرباء والدهانات من الفحص وحتى تسليم الضمان الخطي.
+        </p>
+      </div>
+
+      <div class="conduit-pipeline">
+        <div class="conduit-line-track">
+          <div class="conduit-laser-beam"></div>
+        </div>
+
+        <div class="workflow-grid reveal-up">
+          <!-- Step 1 -->
+          <div class="workflow-card">
+            <div class="workflow-step-num">01</div>
+            <div class="workflow-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            </div>
+            <h3 class="workflow-title">الفحص والمعاينة الدقيقة</h3>
+            <p class="workflow-desc">فحص هندسي شامل باستخدام أحدث أجهزة كشف الأعطال والتسربات الحرارية وفحص الأحمال الكهربائية بدقة متناهية.</p>
+            <span class="workflow-pill">أحدث أجهزة الفحص الرقمية</span>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="workflow-card">
+            <div class="workflow-step-num">02</div>
+            <div class="workflow-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <h3 class="workflow-title">خطة العمل وتحديد المتطلبات</h3>
+            <p class="workflow-desc">شرح فني كامل للعميل يوضح خطوات المعالجة والقطع الأصلية المطلوبة والمدة الزمنية المحددة للانتهاء بدون أي غموض.</p>
+            <span class="workflow-pill">شفافية تامة وتفاصيل واضحة</span>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="workflow-card">
+            <div class="workflow-step-num">03</div>
+            <div class="workflow-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <h3 class="workflow-title">التنفيذ الفني المعتمد</h3>
+            <p class="workflow-desc">مباشرة العمل بأيدي فنيين متخصصين وفق كود البناء السعودي مع تطبيق أعلى تدابير السلامة الوقائية والنظافة بعد الإنجاز.</p>
+            <span class="workflow-pill">مطابق لكود البناء السعودي</span>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="workflow-card">
+            <div class="workflow-step-num">04</div>
+            <div class="workflow-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="workflow-title">الاختبار وتسليم الضمان</h3>
+            <p class="workflow-desc">إجراء اختبارات ضغط للمياه والأحمال الكهربائية أمام العميل، ثم تسليم شهادة الضمان الخطي المعتمد مع المتابعة الدورية.</p>
+            <span class="workflow-pill">ضمان رسمي ومتابعة مستمرة</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workflow Bottom Action -->
+      <div class="workflow-cta-banner reveal-up">
+        <div class="workflow-cta-content">
+          <div class="workflow-cta-badge">جاهزون لخدمتكم على مدار 24 ساعة</div>
+          <h3>هل تحتاج لمعاينة فورية أو استشارة فنية في موقعك؟</h3>
+          <p>تواصل مع فريق الدعم وسنوجه إليك أقرب فني مجهز بأحدث الأدوات لخدمتك بأعلى كفاءة.</p>
+        </div>
+        <div class="workflow-cta-actions">
+          <a href="tel:+966546601168" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <span>اتصل الآن: 054 660 1168</span>
+          </a>
+          <a href="https://wa.me/966546601168" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.983.54 1.848.828 2.796.828 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.766-5.77-5.766zm9.969 5.768c0 5.485-4.464 9.95-9.969 9.95-1.745 0-3.385-.45-4.821-1.238l-5.21 1.365 1.393-5.086c-.887-1.492-1.362-3.216-1.362-4.991 0-5.486 4.466-9.95 9.969-9.95 5.504 0 9.969 4.464 9.969 9.95z"/></svg>
+            <span>مراسلة واتساب فورية</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -925,7 +1107,39 @@
       <div class="footer-grid">
         <!-- Col 1: About & Info -->
         <div class="footer-col footer-brand-col">
-          <img src="assets/images/logo.svg" alt="مؤسسة بوابة غرناطة للسباكة والكهرباء بالرياض" class="footer-logo" width="240" height="40">
+          <a href="index.html" class="brand-logo footer-brand" aria-label="مؤسسة بوابة غرناطة للسباكة والكهرباء بالرياض">
+            <span class="brand-emblem">
+              <svg viewBox="0 0 64 64" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg" class="emblem-svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="shieldGradFt" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#071424" />
+                    <stop offset="50%" stop-color="#0f2b4e" />
+                    <stop offset="100%" stop-color="#1d4ed8" />
+                  </linearGradient>
+                  <linearGradient id="goldGradFt" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#fde047" />
+                    <stop offset="60%" stop-color="#f59e0b" />
+                    <stop offset="100%" stop-color="#d97706" />
+                  </linearGradient>
+                  <linearGradient id="waterGradFt" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#38bdf8" />
+                    <stop offset="100%" stop-color="#0284c7" />
+                  </linearGradient>
+                </defs>
+                <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#shieldGradFt)" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
+                <rect x="4.5" y="4.5" width="55" height="55" rx="13.5" fill="none" stroke="url(#goldGradFt)" stroke-width="1.4" stroke-opacity="0.9"/>
+                <path d="M 18 50 V 29 C 18 19 46 19 46 29 V 50" stroke="url(#goldGradFt)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 23 50 V 31 C 23 23 41 23 41 31 V 50" stroke="rgba(253, 224, 71, 0.45)" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M 32 23 C 32 23 23 34 23 39.5 C 23 44.5 27 48 32 48 C 37 48 41 44.5 41 39.5 C 41 34 32 23 32 23 Z" fill="url(#waterGradFt)"/>
+                <polygon points="34,25 26,37 33,37 30,47 40,34 33.5,34" fill="#fbbf24" stroke="#d97706" stroke-width="0.8"/>
+                <circle cx="32" cy="14" r="2.5" fill="#fde047"/>
+              </svg>
+            </span>
+            <span class="brand-text">
+              <span class="brand-title">بوابة غرناطة</span>
+              <span class="brand-tag">سباكة • كهرباء • دهانات</span>
+            </span>
+          </a>
           <p class="footer-desc">
             مؤسسة بوابة غرناطة للتجارة متخصصة في تقديم خدمات الصيانة والأعمال الفنية المتكاملة للمنازل والمنشآت بالرياض: سباكة، كهرباء، دهانات، ترميم وصيانة دورية بأعلى معايير الجودة والسرعة.
           </p>

@@ -454,32 +454,110 @@ p:last-child {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 78px;
+  height: 76px;
   gap: 16px;
 }
 
+/* ==========================================================================
+   Luxury Hybrid Brand Logo Component
+   ========================================================================== */
 .brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: transform var(--transition-fast);
+  cursor: pointer;
+  user-select: none;
+}
+
+.brand-logo:hover {
+  transform: translateY(-1px);
+}
+
+.brand-emblem {
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-shrink: 0;
-  text-decoration: none;
+  filter: drop-shadow(0 4px 12px rgba(15, 41, 74, 0.22));
+  transition: transform var(--transition-fast), filter var(--transition-fast);
 }
 
-.logo-img {
-  height: 48px;
-  width: auto;
-  max-width: 290px;
-  min-width: 210px;
+.brand-logo:hover .brand-emblem {
+  transform: scale(1.05) rotate(-1.5deg);
+  filter: drop-shadow(0 6px 16px rgba(29, 78, 216, 0.35));
+}
+
+.emblem-svg {
+  width: 44px;
+  height: 44px;
   display: block;
-  object-fit: contain;
-  transition: transform var(--transition-fast);
-  filter: drop-shadow(0 2px 5px rgba(9, 23, 41, 0.06));
 }
 
-.brand-logo:hover .logo-img {
-  transform: scale(1.02);
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.15;
 }
 
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--primary-navy);
+  letter-spacing: -0.025em;
+  font-family: 'Tajawal', 'Cairo', sans-serif;
+  transition: color var(--transition-fast);
+  display: block;
+  white-space: nowrap;
+}
+
+html[lang="en"] .brand-title {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.brand-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #d97706;
+  letter-spacing: 0.01em;
+  margin-top: 3px;
+  display: block;
+  white-space: nowrap;
+}
+
+html[lang="en"] .brand-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+}
+
+/* Footer brand adaptation */
+.footer-brand {
+  margin-bottom: 18px;
+}
+
+.footer-brand .brand-title {
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(255, 255, 255, 0.22);
+}
+
+.footer-brand .brand-tag {
+  color: #94a3b8;
+}
+
+.footer-brand .brand-emblem {
+  filter: drop-shadow(0 4px 14px rgba(245, 158, 11, 0.25));
+}
+
+/* ==========================================================================
+   Main Desktop Nav Links
+   ========================================================================== */
 .main-nav {
   display: flex;
   align-items: center;
@@ -489,16 +567,16 @@ p:last-child {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 4px;
+  gap: 3px;
 }
 
 .nav-link {
   display: inline-flex;
   align-items: center;
-  padding: 8px 14px;
+  padding: 8px 13px;
   color: var(--primary-navy);
   font-weight: 800;
-  font-size: 0.94rem;
+  font-size: 0.91rem;
   border-radius: var(--radius-full);
   transition: all var(--transition-normal);
   position: relative;
@@ -509,10 +587,10 @@ p:last-child {
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: 2px;
   left: 50%;
   transform: translateX(-50%) scaleX(0);
-  width: 20px;
+  width: 18px;
   height: 3px;
   background: linear-gradient(90deg, #1d4ed8, #06b6d4);
   border-radius: 999px;
@@ -522,7 +600,7 @@ p:last-child {
 .nav-link:hover,
 .nav-link.active {
   color: var(--primary-blue);
-  background: rgba(239, 246, 255, 0.85);
+  background: rgba(239, 246, 255, 0.9);
 }
 
 .nav-link.active::after,
@@ -562,8 +640,8 @@ p:last-child {
 
 .btn-call-header,
 .btn-whatsapp-header {
-  padding: 9px 18px;
-  font-size: 0.9rem;
+  padding: 8px 18px;
+  font-size: 0.88rem;
   font-weight: 800;
   border-radius: var(--radius-full);
   display: inline-flex;
@@ -578,14 +656,14 @@ p:last-child {
   background: linear-gradient(135deg, #091729 0%, #153259 100%);
   color: #ffffff;
   box-shadow: 0 4px 14px rgba(9, 23, 41, 0.18);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .btn-call-header:hover {
   background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 100%);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(29, 78, 216, 0.3);
+  box-shadow: 0 8px 20px rgba(29, 78, 216, 0.32);
 }
 
 .btn-whatsapp-header {
@@ -599,19 +677,28 @@ p:last-child {
   background: linear-gradient(135deg, #1ea952 0%, #15803d 100%);
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.48);
 }
 
 .mobile-toggle {
   display: none;
+  width: 40px;
+  height: 40px;
   background: #f1f5f9;
   border: 1px solid var(--border-subtle);
   color: var(--primary-navy);
   cursor: pointer;
-  padding: 8px;
-  border-radius: var(--radius-sm);
+  border-radius: 10px;
   align-items: center;
   justify-content: center;
+  transition: all var(--transition-fast);
+  padding: 0;
+}
+
+.mobile-toggle:hover {
+  background: var(--primary-blue-light);
+  color: var(--primary-blue);
+  border-color: rgba(29, 78, 216, 0.25);
 }
 
 /* ==========================================================================
@@ -2970,4 +3057,359 @@ html[dir="ltr"] .legal-list {
   color: var(--text-secondary);
   line-height: 1.7;
   margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   Live Riyadh Dispatch Radar Ribbon (شريط رادار التوزيع الميداني الفوري)
+   ========================================================================== */
+.radar-ribbon {
+  background: linear-gradient(90deg, #071527 0%, #0d274c 50%, #071527 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  padding: 12px 0;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+.radar-ribbon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #38bdf8, #fbbf24, transparent);
+  animation: radarScan 4s linear infinite;
+}
+
+@keyframes radarScan {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.radar-inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.radar-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.84rem;
+  font-weight: 800;
+  white-space: nowrap;
+  flex-shrink: 0;
+  color: #38bdf8;
+}
+
+.radar-beacon {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  background: #22c55e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #22c55e;
+}
+
+.radar-beacon::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid #22c55e;
+  border-radius: 50%;
+  animation: beaconWave 2s infinite ease-out;
+  opacity: 0;
+}
+
+@keyframes beaconWave {
+  0% { transform: scale(0.6); opacity: 1; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+
+.radar-marquee-wrap {
+  flex: 1;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+}
+
+.radar-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  white-space: nowrap;
+  animation: marqueeScroll 36s linear infinite;
+  will-change: transform;
+}
+
+.radar-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
+}
+
+html[dir="ltr"] .radar-marquee-track {
+  animation-direction: reverse;
+}
+
+.radar-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.radar-tag {
+  background: rgba(56, 189, 248, 0.16);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.radar-tag.emergency {
+  background: rgba(239, 68, 68, 0.16);
+  border-color: rgba(239, 68, 68, 0.35);
+  color: #f87171;
+}
+
+.radar-tag.gold {
+  background: rgba(245, 158, 11, 0.16);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+.radar-sep {
+  opacity: 0.35;
+  color: #64748b;
+}
+
+/* ==========================================================================
+   Parallax Ambient Lights & Floating 3D Metric Badges
+   ========================================================================== */
+.parallax-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+  will-change: transform;
+  z-index: 0;
+}
+
+.parallax-orb-1 {
+  width: 480px;
+  height: 480px;
+  background: radial-gradient(circle, rgba(29, 78, 216, 0.14) 0%, rgba(6, 182, 212, 0.04) 55%, transparent 70%);
+  top: -100px;
+  right: -60px;
+}
+
+.parallax-orb-2 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.11) 0%, rgba(217, 119, 6, 0.03) 55%, transparent 70%);
+  bottom: -60px;
+  left: -40px;
+}
+
+.parallax-orb-3 {
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 65%);
+  top: 40%;
+  left: 30%;
+}
+
+/* Floating 3D Spec Badges in Hero */
+.hero-floating-badges {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.hero-spec-badge {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  box-shadow: 0 16px 36px -6px rgba(9, 23, 41, 0.18), 0 0 0 1px rgba(226, 232, 240, 0.6);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  pointer-events: auto;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.hero-spec-badge:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 20px 40px -6px rgba(29, 78, 216, 0.25);
+}
+
+.hero-spec-badge.badge-top-left {
+  top: -18px;
+  left: -20px;
+  animation: floatSpec1 6s ease-in-out infinite alternate;
+}
+
+html[dir="ltr"] .hero-spec-badge.badge-top-left {
+  left: auto;
+  right: -20px;
+}
+
+.hero-spec-badge.badge-bottom-right {
+  bottom: -18px;
+  right: -20px;
+  animation: floatSpec2 7s ease-in-out infinite alternate;
+}
+
+html[dir="ltr"] .hero-spec-badge.badge-bottom-right {
+  right: auto;
+  left: -20px;
+}
+
+@keyframes floatSpec1 {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(-10px) rotate(-1.5deg); }
+}
+
+@keyframes floatSpec2 {
+  0% { transform: translateY(0) rotate(0deg); }
+  100% { transform: translateY(10px) rotate(1.5deg); }
+}
+
+.badge-icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.12), rgba(6, 182, 212, 0.12));
+  color: var(--primary-blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+}
+
+.badge-icon-box.gold {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.15));
+  color: #d97706;
+}
+
+.badge-icon-box.green {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(22, 163, 74, 0.15));
+  color: #16a34a;
+}
+
+.badge-texts strong {
+  display: block;
+  font-size: 0.92rem;
+  font-weight: 900;
+  color: var(--primary-navy);
+  line-height: 1.25;
+}
+
+.badge-texts span {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   Illuminated Conduit Pipeline (مسار التنفيذ المضاء)
+   ========================================================================== */
+.conduit-pipeline {
+  position: relative;
+  margin: 40px 0;
+}
+
+.conduit-line-track {
+  position: absolute;
+  top: 52px;
+  left: 8%;
+  right: 8%;
+  height: 4px;
+  background: rgba(226, 232, 240, 0.85);
+  border-radius: 999px;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.conduit-laser-beam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, transparent, #1d4ed8, #06b6d4, #f59e0b, transparent);
+  animation: laserStream 3.5s linear infinite;
+}
+
+@keyframes laserStream {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}
+
+@media (max-width: 992px) {
+  .conduit-line-track {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   District Filter Tabs for Modern Interactive Coverage
+   ========================================================================== */
+.district-filter-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.filter-tab-btn {
+  padding: 9px 20px;
+  border-radius: var(--radius-full);
+  background: #f1f5f9;
+  border: 1px solid var(--border-subtle);
+  color: var(--primary-navy);
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.filter-tab-btn:hover,
+.filter-tab-btn.active {
+  background: var(--primary-navy);
+  color: #ffffff;
+  border-color: var(--primary-navy);
+  box-shadow: 0 4px 14px rgba(9, 23, 41, 0.2);
+  transform: translateY(-2px);
 }

@@ -127,17 +127,55 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 5. Scroll Parallax for Hero Live Badge & Floating Decor
+  // 5. Hardware-Accelerated 60fps Parallax Controller
+  const parallaxElements = document.querySelectorAll('[data-parallax-speed]');
+  const parallaxOrbs = document.querySelectorAll('.parallax-orb');
+  const floatingSpecBadges = document.querySelectorAll('.hero-spec-badge');
   const heroLiveBadge = document.querySelector('.hero-live-badge');
-  const heroImgBox = document.querySelector('.hero-img-box');
 
-  if (heroLiveBadge && heroImgBox && window.matchMedia('(min-width: 768px)').matches) {
+  if (window.matchMedia('(min-width: 768px)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    let latestScrollY = window.scrollY;
+    let ticking = false;
+
+    const updateParallax = () => {
+      // 1. Elements with explicit data-parallax-speed
+      parallaxElements.forEach(el => {
+        const speed = parseFloat(el.getAttribute('data-parallax-speed')) || 0.1;
+        const rect = el.getBoundingClientRect();
+        const centerOffset = (window.innerHeight / 2) - (rect.top + rect.height / 2);
+        el.style.transform = `translate3d(0, ${centerOffset * speed}px, 0)`;
+      });
+
+      // 2. Ambient background glow orbs
+      parallaxOrbs.forEach((orb, i) => {
+        const speed = (i % 2 === 0) ? 0.08 : -0.06;
+        orb.style.transform = `translate3d(0, ${latestScrollY * speed}px, 0)`;
+      });
+
+      // 3. Hero Spec Badges gentle offset
+      if (latestScrollY < 800) {
+        floatingSpecBadges.forEach((badge, i) => {
+          const speed = (i === 0) ? 0.06 : -0.05;
+          badge.style.transform = `translate3d(0, ${latestScrollY * speed}px, 0)`;
+        });
+        if (heroLiveBadge) {
+          heroLiveBadge.style.transform = `translate3d(0, ${latestScrollY * 0.08}px, 0)`;
+        }
+      }
+
+      ticking = false;
+    };
+
     window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (scrollY < 600) {
-        heroLiveBadge.style.transform = `translateY(${scrollY * 0.08}px)`;
+      latestScrollY = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(updateParallax);
+        ticking = true;
       }
     }, { passive: true });
+
+    // Initial calculation
+    window.requestAnimationFrame(updateParallax);
   }
 
   // 6. Quick Service Chips click-to-WhatsApp
@@ -298,6 +336,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const y = e.clientY - rect.top;
         card.style.setProperty('--mouse-x', `${x}px`);
         card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  }
+
+  // 13. Interactive Riyadh District Filter Tabs
+  const districtTabs = document.querySelectorAll('.filter-tab-btn');
+  const districtCards = document.querySelectorAll('.nh-card');
+
+  if (districtTabs.length > 0 && districtCards.length > 0) {
+    districtTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        districtTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        const filter = tab.getAttribute('data-filter') || 'all';
+
+        districtCards.forEach(card => {
+          const region = card.getAttribute('data-region') || '';
+          if (filter === 'all' || region === filter) {
+            card.style.display = '';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          } else {
+            card.style.display = 'none';
+          }
+        });
       });
     });
   }

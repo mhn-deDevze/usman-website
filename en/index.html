@@ -116,7 +116,37 @@
   <header class="site-header" id="site-header">
     <div class="container nav-inner">
       <a href="index.html" class="brand-logo" aria-label="Bawabat Garnada Home">
-        <img src="../assets/images/logo-en.svg" alt="Bawabat Garnada Plumbing & Electrical Services Riyadh" class="logo-img" width="260" height="42">
+        <span class="brand-emblem">
+          <svg viewBox="0 0 64 64" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg" class="emblem-svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="shieldGradEn" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#071424" />
+                <stop offset="50%" stop-color="#0f2b4e" />
+                <stop offset="100%" stop-color="#1d4ed8" />
+              </linearGradient>
+              <linearGradient id="goldGradEn" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fde047" />
+                <stop offset="60%" stop-color="#f59e0b" />
+                <stop offset="100%" stop-color="#d97706" />
+              </linearGradient>
+              <linearGradient id="waterGradEn" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8" />
+                <stop offset="100%" stop-color="#0284c7" />
+              </linearGradient>
+            </defs>
+            <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#shieldGradEn)" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
+            <rect x="4.5" y="4.5" width="55" height="55" rx="13.5" fill="none" stroke="url(#goldGradEn)" stroke-width="1.4" stroke-opacity="0.9"/>
+            <path d="M 18 50 V 29 C 18 19 46 19 46 29 V 50" stroke="url(#goldGradEn)" stroke-width="3" stroke-linecap="round"/>
+            <path d="M 23 50 V 31 C 23 23 41 23 41 31 V 50" stroke="rgba(253, 224, 71, 0.45)" stroke-width="1.2" stroke-linecap="round"/>
+            <path d="M 32 23 C 32 23 23 34 23 39.5 C 23 44.5 27 48 32 48 C 37 48 41 44.5 41 39.5 C 41 34 32 23 32 23 Z" fill="url(#waterGradEn)"/>
+            <polygon points="34,25 26,37 33,37 30,47 40,34 33.5,34" fill="#fbbf24" stroke="#d97706" stroke-width="0.8"/>
+            <circle cx="32" cy="14" r="2.5" fill="#fde047"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-title">BAWABAT GARNADA</span>
+          <span class="brand-tag">Plumbing • Electrical • Painting</span>
+        </span>
       </a>
 
       <nav class="main-nav" aria-label="Main Navigation">
@@ -140,11 +170,11 @@
         <a href="../index.html" class="lang-pill" title="Arabic Version">
           <span>العربية</span>
         </a>
-        <a href="tel:+966546601168" class="btn btn-call-header">
+        <a href="tel:+966546601168" class="btn btn-call-header" title="Call directly">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
           <span>054 660 1168</span>
         </a>
-        <a href="https://wa.me/966546601168" class="btn btn-whatsapp-header" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/966546601168" class="btn btn-whatsapp-header" target="_blank" rel="noopener noreferrer" title="Instant WhatsApp">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.983.54 1.848.828 2.796.828 3.182 0 5.768-2.587 5.769-5.767.001-3.181-2.585-5.766-5.77-5.766zm9.969 5.768c0 5.485-4.464 9.95-9.969 9.95-1.745 0-3.385-.45-4.821-1.238l-5.21 1.365 1.393-5.086c-.887-1.492-1.362-3.216-1.362-4.991 0-5.486 4.466-9.95 9.969-9.95 5.504 0 9.969 4.464 9.969 9.95z"/></svg>
           <span>WhatsApp</span>
         </a>
@@ -155,8 +185,11 @@
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero-section" id="hero">
+  <!-- Hero Section with Ambient Parallax -->
+  <section class="hero-section ambient-aurora-bg" id="hero">
+    <div class="parallax-orb parallax-orb-1" data-parallax-speed="0.12"></div>
+    <div class="parallax-orb parallax-orb-2" data-parallax-speed="-0.1"></div>
+
     <div class="container hero-grid">
       <div class="hero-content reveal-up">
         <div class="badge-pill">
@@ -229,6 +262,63 @@
           <div class="hero-trust-tag">
             <span class="star-icon">★ 4.9</span>
             <span>340+ Verified Reviews</span>
+          </div>
+        </div>
+
+        <!-- Layered Floating 3D Parallax Spec Badges -->
+        <div class="hero-floating-badges">
+          <div class="hero-spec-badge badge-top-left" data-parallax-speed="0.06">
+            <div class="badge-icon-box gold">★</div>
+            <div class="badge-texts">
+              <strong>4.9 / 5 Rated</strong>
+              <span>1200+ Projects Completed</span>
+            </div>
+          </div>
+
+          <div class="hero-spec-badge badge-bottom-right" data-parallax-speed="-0.05">
+            <div class="badge-icon-box green">🛡️</div>
+            <div class="badge-texts">
+              <strong>Official Warranty</strong>
+              <span>Guaranteed Workmanship</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Riyadh Dispatch Radar Ribbon -->
+  <section class="radar-ribbon" aria-label="Live Riyadh Field Technical Dispatch Radar">
+    <div class="container radar-inner">
+      <div class="radar-status-badge">
+        <span class="radar-beacon"></span>
+        <span>Live Dispatch Radar</span>
+      </div>
+      <div class="radar-marquee-wrap">
+        <div class="radar-marquee-track">
+          <div class="radar-item">
+            <span class="radar-tag">💧 Plumbing</span>
+            <span>Digital Leak Detection & Water Network Team: On-site in Al-Malqa & Hittin (ETA 25 mins)</span>
+          </div>
+          <span class="radar-sep">•</span>
+          <div class="radar-item">
+            <span class="radar-tag emergency">⚡ Emergency</span>
+            <span>Short Circuit & Power Outage Electricians: Standby dispatch in Al-Yasmeen & An-Narjis</span>
+          </div>
+          <span class="radar-sep">•</span>
+          <div class="radar-item">
+            <span class="radar-tag">🎨 Painting</span>
+            <span>Wall Painting & Fluted Wood/Marble Panel Specialists: Free on-site consultation in Riyadh</span>
+          </div>
+          <span class="radar-sep">•</span>
+          <div class="radar-item">
+            <span class="radar-tag gold">🛡️ Warranty</span>
+            <span>All plumbing, electrical, and decor works backed by official certified written guarantee</span>
+          </div>
+          <span class="radar-sep">•</span>
+          <div class="radar-item">
+            <span class="radar-tag">📍 HQ Base</span>
+            <span>Khalid Ibn Al Walid St, Riyadh 13241 | Rapid coverage across North, East & Central Riyadh</span>
           </div>
         </div>
       </div>
@@ -757,7 +847,39 @@
     <div class="container footer-top">
       <div class="footer-grid">
         <div class="footer-col footer-brand-col">
-          <img src="../assets/images/logo-en.svg" alt="Bawabat Garnada Plumbing & Electrical Services" class="footer-logo" width="240" height="40">
+          <a href="index.html" class="brand-logo footer-brand" aria-label="Bawabat Garnada Plumbing & Electrical Services">
+            <span class="brand-emblem">
+              <svg viewBox="0 0 64 64" width="44" height="44" fill="none" xmlns="http://www.w3.org/2000/svg" class="emblem-svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="shieldGradFtEn" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#071424" />
+                    <stop offset="50%" stop-color="#0f2b4e" />
+                    <stop offset="100%" stop-color="#1d4ed8" />
+                  </linearGradient>
+                  <linearGradient id="goldGradFtEn" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#fde047" />
+                    <stop offset="60%" stop-color="#f59e0b" />
+                    <stop offset="100%" stop-color="#d97706" />
+                  </linearGradient>
+                  <linearGradient id="waterGradFtEn" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#38bdf8" />
+                    <stop offset="100%" stop-color="#0284c7" />
+                  </linearGradient>
+                </defs>
+                <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#shieldGradFtEn)" stroke="rgba(255,255,255,0.2)" stroke-width="1.2"/>
+                <rect x="4.5" y="4.5" width="55" height="55" rx="13.5" fill="none" stroke="url(#goldGradFtEn)" stroke-width="1.4" stroke-opacity="0.9"/>
+                <path d="M 18 50 V 29 C 18 19 46 19 46 29 V 50" stroke="url(#goldGradFtEn)" stroke-width="3" stroke-linecap="round"/>
+                <path d="M 23 50 V 31 C 23 23 41 23 41 31 V 50" stroke="rgba(253, 224, 71, 0.45)" stroke-width="1.2" stroke-linecap="round"/>
+                <path d="M 32 23 C 32 23 23 34 23 39.5 C 23 44.5 27 48 32 48 C 37 48 41 44.5 41 39.5 C 41 34 32 23 32 23 Z" fill="url(#waterGradFtEn)"/>
+                <polygon points="34,25 26,37 33,37 30,47 40,34 33.5,34" fill="#fbbf24" stroke="#d97706" stroke-width="0.8"/>
+                <circle cx="32" cy="14" r="2.5" fill="#fde047"/>
+              </svg>
+            </span>
+            <span class="brand-text">
+              <span class="brand-title">BAWABAT GARNADA</span>
+              <span class="brand-tag">Plumbing • Electrical • Painting</span>
+            </span>
+          </a>
           <p class="footer-desc">
             Bawabat Granada Trading & Maintenance Est. provides integrated technical services for homes and facilities in Riyadh: plumbing, electrical, painting, and comprehensive renovation.
           </p>
