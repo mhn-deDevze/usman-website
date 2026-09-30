@@ -1,17 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
-    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0b1a2e" />
-      <stop offset="100%" stop-color="#1e3a8a" />
+    <linearGradient id="favShield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#091729" />
+      <stop offset="100%" stop-color="#142c4d" />
     </linearGradient>
     <linearGradient id="favGold" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#fbbf24" />
       <stop offset="100%" stop-color="#d97706" />
     </linearGradient>
+    <linearGradient id="favCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="16" fill="url(#favBg)"/>
-  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="url(#favGold)" stroke-width="2"/>
-  <path d="M18 50 V28 Q32 14 46 28 V50" fill="none" stroke="url(#favGold)" stroke-width="3" stroke-linecap="round"/>
-  <path d="M32 24 C32 24 24 35 24 40 A8 8 0 0 0 40 40 C40 35 32 24 32 24 Z" fill="#38bdf8"/>
-  <polygon points="34,26 27,38 33,38 30,48 39,36 33,36" fill="#fef08a"/>
+  <rect width="64" height="64" rx="16" fill="url(#favShield)"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="url(#favGold)" stroke-width="1.8"/>
+  <!-- Gateway Arch -->
+  <path d="M 18 50 L 18 28 C 18 18, 46 18, 46 28 L 46 50" fill="none" stroke="url(#favGold)" stroke-width="3" stroke-linecap="round"/>
+  <!-- Water Drop -->
+  <path d="M 32 23 C 32 23, 23 35, 23 41 C 23 46, 27 49, 32 49 C 37 49, 41 46, 41 41 C 41 35, 32 23, 32 23 Z" fill="url(#favCyan)"/>
+  <!-- Lightning Bolt -->
+  <polygon points="34,26 26,38 33,38 30,48 40,35 33,35" fill="#fef08a"/>
 </svg>

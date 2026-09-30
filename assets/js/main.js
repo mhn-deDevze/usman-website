@@ -250,4 +250,38 @@ document.addEventListener('DOMContentLoaded', () => {
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
+
+  // 11. Interactive Real Project Videos Player Engine
+  const videoCards = document.querySelectorAll('.video-card');
+  videoCards.forEach(card => {
+    const video = card.querySelector('.work-video');
+    const wrap = card.querySelector('.video-player-wrap');
+    if (!video || !wrap) return;
+
+    // Hover or tap to play/pause
+    const togglePlay = () => {
+      if (video.paused) {
+        video.play().then(() => {
+          wrap.classList.remove('paused');
+        }).catch(() => {});
+      } else {
+        video.pause();
+        wrap.classList.add('paused');
+      }
+    };
+
+    wrap.addEventListener('click', togglePlay);
+
+    // Desktop hover auto-preview
+    if (window.matchMedia('(min-width: 992px)').matches) {
+      card.addEventListener('mouseenter', () => {
+        video.play().catch(() => {});
+        wrap.classList.remove('paused');
+      });
+      card.addEventListener('mouseleave', () => {
+        video.pause();
+        wrap.classList.add('paused');
+      });
+    }
+  });
 });
