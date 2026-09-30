@@ -1,61 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 76" width="100%" height="100%" xml:space="preserve">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 80" width="480" height="80" style="background:transparent;display:block;">
   <defs>
     <!-- Background Gradient for Icon Shield -->
     <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#091729" />
-      <stop offset="50%" stop-color="#0e2540" />
-      <stop offset="100%" stop-color="#122f52" />
+      <stop offset="60%" stop-color="#0f294a" />
+      <stop offset="100%" stop-color="#1d4ed8" />
     </linearGradient>
 
     <!-- Gold Accent Gradient -->
     <linearGradient id="goldAcc" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="0%" stop-color="#fbbf24" />
       <stop offset="100%" stop-color="#d97706" />
     </linearGradient>
 
-    <!-- Vibrant Sapphire Cyan Gradient -->
+    <!-- Vibrant Cyan Water Gradient -->
     <linearGradient id="cyanAcc" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#38bdf8" />
       <stop offset="60%" stop-color="#0284c7" />
       <stop offset="100%" stop-color="#1d4ed8" />
     </linearGradient>
-
-    <!-- Drop Shadow Filter -->
-    <filter id="softGlow" x="-15%" y="-15%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#091729" flood-opacity="0.12" />
-    </filter>
   </defs>
 
-  <!-- Left Icon Emblem (60x60) -->
-  <g transform="translate(4, 8)" filter="url(#softGlow)">
+  <!-- Left Icon Emblem (62x62) -->
+  <g transform="translate(6, 9)">
     <!-- Base Rounded Shield -->
-    <rect x="0" y="0" width="60" height="60" rx="15" fill="url(#shieldGrad)" />
+    <rect x="0" y="0" width="62" height="62" rx="16" fill="url(#shieldGrad)" />
     <!-- Inset Golden Precision Border -->
-    <rect x="1.5" y="1.5" width="57" height="57" rx="13.5" fill="none" stroke="url(#goldAcc)" stroke-width="1.4" opacity="0.85" />
+    <rect x="1.5" y="1.5" width="59" height="59" rx="14.5" fill="none" stroke="url(#goldAcc)" stroke-width="1.8" opacity="0.9" />
     
     <!-- Stylized Architectural Gateway Arch (بوابة غرناطة) -->
-    <path d="M 16 48 L 16 28 C 16 18, 44 18, 44 28 L 44 48" fill="none" stroke="url(#goldAcc)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M 16 50 L 16 28 C 16 17, 46 17, 46 28 L 46 50" fill="none" stroke="url(#goldAcc)" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" />
     
     <!-- Water Droplet for Plumbing (سباكة) -->
-    <path d="M 30 22 C 30 22, 21 34, 21 39.5 C 21 44.5, 25 48, 30 48 C 35 48, 39 44.5, 39 39.5 C 39 34, 30 22, 30 22 Z" fill="url(#cyanAcc)" opacity="0.95" />
+    <path d="M 31 23 C 31 23, 22 35, 22 40.5 C 22 45.5, 26 49, 31 49 C 36 49, 40 45.5, 40 40.5 C 40 35, 31 23, 31 23 Z" fill="url(#cyanAcc)" />
     
     <!-- High-Voltage Energy Lightning Bolt (كهرباء) -->
-    <polygon points="32,25 24,37 31,37 28,47 38,34 31.5,34" fill="#fbbf24" stroke="#d97706" stroke-width="0.5" />
+    <polygon points="33,26 25,38 32,38 29,48 39,35 32.5,35" fill="#fbbf24" stroke="#d97706" stroke-width="0.6" />
     
-    <!-- Decorative Star / Sparkle Point (دهانات وديكور) -->
-    <circle cx="30" cy="14" r="2.2" fill="#38bdf8" />
+    <!-- Decorative Sparkle Point (دهانات وديكور) -->
+    <circle cx="31" cy="14" r="2.5" fill="#38bdf8" />
   </g>
 
-  <!-- Typography Group (Arabic RTL layout) -->
-  <g transform="translate(76, 0)">
+  <!-- Typography Group (Arabic) -->
+  <!-- Using direction="ltr" with text-anchor="start" to prevent RTL negative offset bug in SVG-as-image -->
+  <g direction="ltr" style="text-anchor:start;font-family:'Tajawal','Cairo',Tahoma,'Segoe UI',Arial,sans-serif;">
     <!-- Main Business Name -->
-    <text x="0" y="34" font-family="'Tajawal', 'Cairo', system-ui, -apple-system, 'Segoe UI', Tahoma, sans-serif" font-size="21.5" font-weight="900" fill="#091729" letter-spacing="-0.3">
-      مؤسسة بوابة غرناطة
-    </text>
+    <text x="82" y="37" font-size="22" font-weight="900" fill="#091729" letter-spacing="-0.3">مؤسسة بوابة غرناطة</text>
     
     <!-- Tagline & Services Category Badges -->
-    <text x="0" y="58" font-family="'Tajawal', 'Cairo', system-ui, -apple-system, 'Segoe UI', Tahoma, sans-serif" font-size="13" font-weight="800" fill="#d97706" letter-spacing="-0.2">
-      للسباكة • الكهرباء • الدهانات والترميم | الرياض
-    </text>
+    <text x="82" y="60" font-size="12.5" font-weight="800" fill="#d97706" letter-spacing="-0.1">للسباكة • الكهرباء • الدهانات والترميم بالرياض</text>
   </g>
 </svg>
