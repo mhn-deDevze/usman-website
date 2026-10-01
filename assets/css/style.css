@@ -147,6 +147,43 @@ html[dir="ltr"] .stat-num {
   letter-spacing: -0.02em;
 }
 
+/* ==========================================================================
+   Phone Number Direction & BiDi Isolation (Never Revert in RTL)
+   ========================================================================== */
+.phone-number,
+.phone-num,
+[dir="ltr"].phone-number,
+[dir="ltr"].c-link {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  display: inline-block;
+  text-align: left;
+  white-space: nowrap;
+}
+
+bdi[dir="ltr"] {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+}
+
+.announcement-phone,
+.btn-call-header,
+.btn-call-widget,
+.sticky-call {
+  unicode-bidi: isolate;
+}
+
+.announcement-phone .phone-number,
+.btn-call-header .phone-number,
+.btn-call-widget .phone-number,
+.btn-primary .phone-number,
+.btn-glow .phone-number {
+  direction: ltr !important;
+  unicode-bidi: isolate !important;
+  display: inline-block;
+  white-space: nowrap;
+}
+
 /* Container */
 .container {
   width: 100%;
