@@ -420,11 +420,16 @@ p:last-child {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(24px) saturate(190%);
   -webkit-backdrop-filter: blur(24px) saturate(190%);
   border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 4px 20px rgba(9, 23, 41, 0.04);
   transition: all var(--transition-normal);
+}
+
+.site-header .container {
+  max-width: 1440px;
 }
 
 .site-header::before {
@@ -445,7 +450,7 @@ p:last-child {
 }
 
 .site-header.scrolled {
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.98);
   box-shadow: 0 10px 30px rgba(9, 23, 41, 0.08);
   border-bottom-color: rgba(226, 232, 240, 0.95);
 }
@@ -454,8 +459,9 @@ p:last-child {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 76px;
-  gap: 16px;
+  height: 74px;
+  gap: 12px;
+  position: relative;
 }
 
 /* ==========================================================================
@@ -563,7 +569,8 @@ html[lang="en"] .brand-tag {
   align-items: center;
   justify-content: center;
   flex: 1;
-  margin: 0 12px;
+  min-width: 0;
+  margin: 0 8px;
 }
 
 .nav-links {
@@ -571,7 +578,7 @@ html[lang="en"] .brand-tag {
   align-items: center;
   justify-content: center;
   list-style: none;
-  gap: 4px;
+  gap: 2px;
   margin: 0;
   padding: 0;
 }
@@ -580,11 +587,11 @@ html[lang="en"] .brand-tag {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 13px;
+  padding: 0 11px;
   height: 38px;
   color: var(--primary-navy);
   font-weight: 800;
-  font-size: 0.91rem;
+  font-size: 0.88rem;
   line-height: 1;
   border-radius: var(--radius-full);
   transition: all var(--transition-normal);
@@ -600,7 +607,7 @@ html[lang="en"] .brand-tag {
   bottom: 4px;
   left: 50%;
   transform: translateX(-50%) scaleX(0);
-  width: 18px;
+  width: 16px;
   height: 3px;
   background: linear-gradient(90deg, #1d4ed8, #06b6d4);
   border-radius: 999px;
@@ -621,7 +628,7 @@ html[lang="en"] .brand-tag {
 .nav-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   flex-shrink: 0;
 }
 
@@ -630,7 +637,7 @@ html[lang="en"] .brand-tag {
   align-items: center;
   justify-content: center;
   height: 38px;
-  padding: 0 14px;
+  padding: 0 13px;
   border-radius: var(--radius-full);
   background: #f1f5f9;
   border: 1px solid var(--border-subtle);
@@ -654,8 +661,8 @@ html[lang="en"] .brand-tag {
 .btn-call-header,
 .btn-whatsapp-header {
   height: 38px;
-  padding: 0 16px;
-  font-size: 0.88rem;
+  padding: 0 14px;
+  font-size: 0.86rem;
   font-weight: 800;
   line-height: 1;
   border-radius: var(--radius-full);
@@ -663,7 +670,7 @@ html[lang="en"] .brand-tag {
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  gap: 8px;
+  gap: 7px;
   white-space: nowrap;
   text-decoration: none;
   transition: all var(--transition-normal);
