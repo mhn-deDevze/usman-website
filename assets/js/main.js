@@ -1,6 +1,6 @@
 /**
- * مؤسسة بوابة غرناطة للسباكة والكهرباء والدهانات بالرياض - Main Interactive & Animation Engine
- * Bawabat Garnada Est. - Plumbing, Electrical, Painting & Renovation Services
+ * مؤسسة بوابة غرناطة للسباكة والكهرباء والدهانات بالرياض - High-Performance Interactive Engine
+ * Bawabat Garnada Est. - Ultra-Fast, Zero-Lag Architecture (No Scroll Blockers)
  * شارع خالد بن الوليد، الرياض 13241 | هاتف: 054 660 1168 | واتساب: 966546601168
  */
 
@@ -52,133 +52,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Sticky Header with Scroll Effect & Scroll-to-Top Button
+  // 2. Lightweight Sticky Header & Scroll-to-Top Button
   const header = document.querySelector('.site-header');
   const scrollTopBtn = document.querySelector('.scroll-top-btn');
 
+  let ticking = false;
   window.addEventListener('scroll', () => {
-    const scrollPos = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrollPos = window.scrollY;
+        if (scrollPos > 30) {
+          header?.classList.add('scrolled');
+        } else {
+          header?.classList.remove('scrolled');
+        }
 
-    if (scrollPos > 25) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
-    }
-
-    if (scrollPos > 320) {
-      scrollTopBtn?.classList.add('visible');
-    } else {
-      scrollTopBtn?.classList.remove('visible');
+        if (scrollPos > 400) {
+          scrollTopBtn?.classList.add('visible');
+        } else {
+          scrollTopBtn?.classList.remove('visible');
+        }
+        ticking = false;
+      });
+      ticking = true;
     }
   }, { passive: true });
 
   scrollTopBtn?.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'auto' });
   });
 
-  // 3. Staggered Scroll Reveal Animations
-  const revealElements = document.querySelectorAll(
-    '.reveal-up, .reveal-fade, .service-card, .review-card, .process-card, .trust-item, .brand-card, .gallery-card, .nh-card, .calc-card, .warranty-banner, .feature-box'
-  );
-  
-  if ('IntersectionObserver' in window && revealElements.length > 0) {
-    const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      root: null,
-      threshold: 0.08,
-      rootMargin: '0px 0px -40px 0px'
-    });
+  // 3. Make all content immediately visible (Zero Lag, No Reveal Delays)
+  document.querySelectorAll('.reveal-up, .reveal-fade, .reveal-ready').forEach(el => {
+    el.classList.add('is-visible');
+  });
 
-    revealElements.forEach((el, index) => {
-      el.classList.add('reveal-ready');
-      el.style.transitionDelay = `${(index % 4) * 0.06}s`;
-      revealObserver.observe(el);
-    });
-  } else {
-    revealElements.forEach(el => el.classList.add('is-visible'));
-  }
-
-  // 4. Subtle 3D Card Tilt Effect on Hover (Desktop)
-  if (window.matchMedia('(min-width: 992px)').matches) {
-    const tiltCards = document.querySelectorAll('.hero-img-box, .service-card, .gallery-card, .warranty-banner');
-    
-    tiltCards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = ((y - centerY) / centerY) * -4;
-        const rotateY = ((x - centerX) / centerX) * 4;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-      });
-
-      card.addEventListener('mouseleave', () => {
-        card.style.transform = '';
-      });
-    });
-  }
-
-  // 5. Hardware-Accelerated 60fps Parallax Controller
-  const parallaxElements = document.querySelectorAll('[data-parallax-speed]');
-  const parallaxOrbs = document.querySelectorAll('.parallax-orb');
-  const floatingSpecBadges = document.querySelectorAll('.hero-spec-badge');
-  const heroLiveBadge = document.querySelector('.hero-live-badge');
-
-  if (window.matchMedia('(min-width: 768px)').matches && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let latestScrollY = window.scrollY;
-    let ticking = false;
-
-    const updateParallax = () => {
-      // 1. Elements with explicit data-parallax-speed
-      parallaxElements.forEach(el => {
-        const speed = parseFloat(el.getAttribute('data-parallax-speed')) || 0.1;
-        const rect = el.getBoundingClientRect();
-        const centerOffset = (window.innerHeight / 2) - (rect.top + rect.height / 2);
-        el.style.transform = `translate3d(0, ${centerOffset * speed}px, 0)`;
-      });
-
-      // 2. Ambient background glow orbs
-      parallaxOrbs.forEach((orb, i) => {
-        const speed = (i % 2 === 0) ? 0.08 : -0.06;
-        orb.style.transform = `translate3d(0, ${latestScrollY * speed}px, 0)`;
-      });
-
-      // 3. Hero Spec Badges gentle offset
-      if (latestScrollY < 800) {
-        floatingSpecBadges.forEach((badge, i) => {
-          const speed = (i === 0) ? 0.06 : -0.05;
-          badge.style.transform = `translate3d(0, ${latestScrollY * speed}px, 0)`;
-        });
-        if (heroLiveBadge) {
-          heroLiveBadge.style.transform = `translate3d(0, ${latestScrollY * 0.08}px, 0)`;
-        }
-      }
-
-      ticking = false;
-    };
-
-    window.addEventListener('scroll', () => {
-      latestScrollY = window.scrollY;
-      if (!ticking) {
-        window.requestAnimationFrame(updateParallax);
-        ticking = true;
-      }
-    }, { passive: true });
-
-    // Initial calculation
-    window.requestAnimationFrame(updateParallax);
-  }
-
-  // 6. Quick Service Chips click-to-WhatsApp
+  // 4. Quick Service Chips click-to-WhatsApp
   const symptomChips = document.querySelectorAll('.symptom-chip, .chip');
   symptomChips.forEach(chip => {
     chip.addEventListener('click', () => {
@@ -195,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 7. Riyadh Neighborhood Card Click -> WhatsApp Booking for that specific district
+  // 5. Riyadh Neighborhood Card Click -> WhatsApp Booking for that specific district
   const nhCards = document.querySelectorAll('.nh-card[data-district]');
   nhCards.forEach(card => {
     card.addEventListener('click', () => {
@@ -212,19 +121,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 8. FAQ Accordion
+  // 6. FAQ Accordion
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     const questionBtn = item.querySelector('.faq-question');
     questionBtn?.addEventListener('click', () => {
       const isActive = item.classList.contains('active');
-      
       faqItems.forEach(otherItem => {
         if (otherItem !== item) {
           otherItem.classList.remove('active');
         }
       });
-
       if (isActive) {
         item.classList.remove('active');
       } else {
@@ -233,70 +140,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 9. Animated Numeric Counters
+  // 7. Stat Counters (Display exact targets instantly)
   const counters = document.querySelectorAll('.counter');
-  let hasAnimated = false;
+  counters.forEach(counter => {
+    const target = counter.getAttribute('data-target');
+    if (target) {
+      counter.innerText = target;
+    }
+  });
 
-  const runCounters = () => {
-    counters.forEach(counter => {
-      const target = +counter.getAttribute('data-target');
-      const isDecimal = target % 1 !== 0;
-      const duration = 1200;
-      const startTime = performance.now();
-
-      const updateCount = (currentTime) => {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const easeProgress = 1 - (1 - progress) * (1 - progress);
-        const currentVal = target * easeProgress;
-
-        if (isDecimal) {
-          counter.innerText = currentVal.toFixed(1);
-        } else {
-          counter.innerText = Math.floor(currentVal);
-        }
-
-        if (progress < 1) {
-          requestAnimationFrame(updateCount);
-        } else {
-          counter.innerText = target;
-        }
-      };
-
-      requestAnimationFrame(updateCount);
-    });
-  };
-
-  const statsSection = document.querySelector('.hero-stats, .stats-strip');
-  if (statsSection && 'IntersectionObserver' in window) {
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && !hasAnimated) {
-          hasAnimated = true;
-          runCounters();
-        }
-      });
-    }, { threshold: 0.25 });
-
-    statsObserver.observe(statsSection);
-  } else {
-    runCounters();
-  }
-
-  // 10. Auto Dynamic Current Year
+  // 8. Auto Dynamic Current Year
   const yearEl = document.getElementById('current-year');
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // 11. Interactive Real Project Videos Player Engine
+  // 9. Interactive Real Project Videos Player Engine
   const videoCards = document.querySelectorAll('.video-card');
   videoCards.forEach(card => {
     const video = card.querySelector('.work-video');
     const wrap = card.querySelector('.video-player-wrap');
     if (!video || !wrap) return;
 
-    // Hover or tap to play/pause
     const togglePlay = () => {
       if (video.paused) {
         video.play().then(() => {
@@ -323,24 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 12. Interactive Radial Spotlight / Cursor Glow on Bespoke Cards
-  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-    const spotlightCards = document.querySelectorAll(
-      '.service-card, .feature-card-alt, .workflow-card, .video-card, .calc-card, .district-detail-card, .review-card, .nh-card'
-    );
-    
-    spotlightCards.forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        card.style.setProperty('--mouse-x', `${x}px`);
-        card.style.setProperty('--mouse-y', `${y}px`);
-      });
-    });
-  }
-
-  // 13. Interactive Riyadh District Filter Tabs
+  // 10. Interactive Riyadh District Filter Tabs
   const districtTabs = document.querySelectorAll('.filter-tab-btn');
   const districtCards = document.querySelectorAll('.nh-card');
 
@@ -357,7 +205,6 @@ document.addEventListener('DOMContentLoaded', () => {
           if (filter === 'all' || region === filter) {
             card.style.display = '';
             card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
           } else {
             card.style.display = 'none';
           }
@@ -366,5 +213,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
-

@@ -80,9 +80,9 @@
   --radius-full: 9999px;
 
   /* Transitions */
-  --transition-fast: 0.18s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-normal: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.1s ease;
+  --transition-normal: 0.12s ease;
+  --transition-smooth: 0.15s ease;
 
   /* Fonts */
   --font-arabic: 'Tajawal', 'Cairo', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -103,7 +103,6 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
   scroll-padding-top: 85px;
   direction: rtl;
   text-align: right;
@@ -365,7 +364,7 @@ p:last-child {
 }
 
 .btn-pulse {
-  animation: gentlePulse 2.8s infinite;
+  animation: none !important;
 }
 
 @keyframes gentlePulse {
@@ -413,7 +412,7 @@ p:last-child {
   background: #38bdf8;
   border-radius: 50%;
   box-shadow: 0 0 8px #38bdf8;
-  animation: blinkDot 1.6s infinite ease-in-out;
+  animation: none !important;
 }
 
 @keyframes blinkDot {
@@ -457,10 +456,8 @@ p:last-child {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(24px) saturate(190%);
-  -webkit-backdrop-filter: blur(24px) saturate(190%);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+  background: #ffffff;
+border-bottom: 1px solid rgba(226, 232, 240, 0.85);
   box-shadow: 0 4px 20px rgba(9, 23, 41, 0.04);
   transition: all var(--transition-normal);
 }
@@ -478,7 +475,7 @@ p:last-child {
   height: 3px;
   background: linear-gradient(90deg, #1d4ed8 0%, #06b6d4 40%, #f59e0b 70%, #1d4ed8 100%);
   background-size: 200% 100%;
-  animation: headerGlowBeam 6s linear infinite;
+  animation: none !important;
 }
 
 @keyframes headerGlowBeam {
@@ -487,7 +484,7 @@ p:last-child {
 }
 
 .site-header.scrolled {
-  background: rgba(255, 255, 255, 0.98);
+  background: #ffffff;
   box-shadow: 0 10px 30px rgba(9, 23, 41, 0.08);
   border-bottom-color: rgba(226, 232, 240, 0.95);
 }
@@ -785,9 +782,9 @@ html[lang="en"] .brand-tag {
   height: 520px;
   background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, rgba(6, 182, 212, 0.05) 50%, transparent 70%);
   border-radius: 50%;
-  filter: blur(80px);
+  opacity: 0.5;
   pointer-events: none;
-  animation: floatSlow 12s infinite alternate ease-in-out;
+  animation: none !important;
   z-index: 0;
 }
 
@@ -800,9 +797,9 @@ html[lang="en"] .brand-tag {
   height: 460px;
   background: radial-gradient(circle, rgba(245, 158, 11, 0.09) 0%, rgba(37, 99, 235, 0.04) 50%, transparent 70%);
   border-radius: 50%;
-  filter: blur(85px);
+  opacity: 0.5;
   pointer-events: none;
-  animation: floatSlowReverse 14s infinite alternate ease-in-out;
+  animation: none !important;
   z-index: 0;
 }
 
@@ -820,8 +817,7 @@ html[lang="en"] .brand-tag {
   align-items: center;
   gap: 10px;
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.9);
+border: 1px solid rgba(226, 232, 240, 0.9);
   padding: 7px 18px;
   border-radius: var(--radius-full);
   box-shadow: 0 4px 14px rgba(9, 23, 41, 0.06);
@@ -837,7 +833,7 @@ html[lang="en"] .brand-tag {
   background: var(--success-green);
   border-radius: 50%;
   box-shadow: 0 0 10px var(--success-green);
-  animation: pulseDot 2s infinite;
+  animation: none !important;
 }
 
 @keyframes pulseDot {
@@ -910,9 +906,8 @@ html[lang="en"] .brand-tag {
 }
 
 .symptom-chip {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(8px);
-  border: 1px solid var(--border-card);
+  background: #ffffff;
+border: 1px solid var(--border-card);
   color: var(--text-secondary);
   font-weight: 800;
   font-size: 0.86rem;
@@ -960,9 +955,7 @@ html[lang="en"] .brand-tag {
   bottom: 20px;
   right: 20px;
   background: rgba(9, 23, 41, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  color: #ffffff;
+color: #ffffff;
   padding: 14px 20px;
   border-radius: var(--radius-md);
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -997,9 +990,8 @@ html[dir="ltr"] .hero-live-badge {
   position: absolute;
   top: 20px;
   left: 20px;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(14px);
-  padding: 9px 18px;
+  background: #ffffff;
+padding: 9px 18px;
   border-radius: var(--radius-full);
   box-shadow: 0 8px 24px rgba(9, 23, 41, 0.12);
   display: flex;
@@ -1024,10 +1016,8 @@ html[dir="ltr"] .hero-trust-tag {
    Statistics Strip
    ========================================================================== */
 .stats-strip {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-top: 1px solid rgba(226, 232, 240, 0.85);
+  background: #ffffff;
+border-top: 1px solid rgba(226, 232, 240, 0.85);
   border-bottom: 1px solid rgba(226, 232, 240, 0.85);
   padding: 42px 0;
   box-shadow: 0 6px 24px -4px rgba(9, 23, 41, 0.04);
@@ -1082,7 +1072,7 @@ html[dir="ltr"] .stat-item:not(:last-child)::after {
   height: 48px;
   width: auto;
   max-width: 280px;
-  background: rgba(255, 255, 255, 0.96);
+  background: #ffffff;
   padding: 6px 14px;
   border-radius: var(--radius-md);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
@@ -1140,8 +1130,7 @@ html[dir="ltr"] .stat-item:not(:last-child)::after {
   top: 14px;
   right: 14px;
   background: rgba(9, 23, 41, 0.88);
-  backdrop-filter: blur(10px);
-  color: #ffffff;
+color: #ffffff;
   padding: 5px 12px;
   border-radius: var(--radius-full);
   font-size: 0.78rem;
@@ -1494,8 +1483,7 @@ html[dir="ltr"] .service-features li::before {
   top: 14px;
   right: 14px;
   background: rgba(9, 23, 41, 0.88);
-  backdrop-filter: blur(10px);
-  color: #ffffff;
+color: #ffffff;
   padding: 5px 12px;
   border-radius: var(--radius-full);
   font-size: 0.78rem;
@@ -2052,7 +2040,7 @@ html[dir="ltr"] .footer-links a:hover {
   height: 450px;
   background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, transparent 65%);
   pointer-events: none;
-  filter: blur(70px);
+  opacity: 0.5;
 }
 
 .page-header::after {
@@ -2064,7 +2052,7 @@ html[dir="ltr"] .footer-links a:hover {
   height: 380px;
   background: radial-gradient(circle, rgba(6, 182, 212, 0.18) 0%, transparent 65%);
   pointer-events: none;
-  filter: blur(80px);
+  opacity: 0.5;
 }
 
 .breadcrumbs {
@@ -2313,9 +2301,7 @@ html[dir="ltr"] .check-list li::before {
 .workflow-card {
   position: relative;
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(226, 232, 240, 0.9);
+border: 1px solid rgba(226, 232, 240, 0.9);
   border-radius: var(--radius-xl);
   padding: 36px 28px 30px;
   box-shadow: 0 10px 30px -5px rgba(9, 23, 41, 0.05);
@@ -2806,10 +2792,8 @@ html[dir="ltr"] .workflow-step-num {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  padding: 8px 14px max(8px, env(safe-area-inset-bottom));
+  background: #ffffff;
+padding: 8px 14px max(8px, env(safe-area-inset-bottom));
   border-top: 1px solid rgba(226, 232, 240, 0.9);
   box-shadow: 0 -4px 20px rgba(9, 23, 41, 0.1);
   z-index: 9999;
@@ -2879,18 +2863,19 @@ html[dir="ltr"] .scroll-top-btn {
 }
 
 /* ==========================================================================
-   Scroll Reveal Animations
+   Scroll Reveal Neutralization (Instant Rendering, Zero Lag)
    ========================================================================== */
-.reveal-ready {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+.reveal-ready,
+.reveal-up,
+.reveal-fade {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
 }
 
 .reveal-ready.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1 !important;
+  transform: none !important;
 }
 
 /* ==========================================================================
@@ -3026,9 +3011,9 @@ html[dir="ltr"] .scroll-top-btn {
   height: 420px;
   background: radial-gradient(circle, rgba(37, 99, 235, 0.12) 0%, rgba(6, 182, 212, 0.04) 55%, transparent 75%);
   border-radius: 50%;
-  filter: blur(60px);
+  opacity: 0.5;
   pointer-events: none;
-  animation: floatSlow 14s infinite alternate ease-in-out;
+  animation: none !important;
   z-index: 0;
 }
 
@@ -3041,15 +3026,15 @@ html[dir="ltr"] .scroll-top-btn {
   height: 380px;
   background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, rgba(37, 99, 235, 0.03) 55%, transparent 75%);
   border-radius: 50%;
-  filter: blur(70px);
+  opacity: 0.5;
   pointer-events: none;
-  animation: floatSlowReverse 16s infinite alternate ease-in-out;
+  animation: none !important;
   z-index: 0;
 }
 
 /* 5. Sleek Floating Badge Micro-Animation */
 .floating-badge {
-  animation: floatBadge 4.5s ease-in-out infinite;
+  animation: none !important;
 }
 
 @keyframes floatBadge {
@@ -3143,7 +3128,7 @@ html[dir="ltr"] .legal-list {
   width: 100%;
   height: 1px;
   background: linear-gradient(90deg, transparent, #38bdf8, #fbbf24, transparent);
-  animation: radarScan 4s linear infinite;
+  animation: none !important;
 }
 
 @keyframes radarScan {
@@ -3162,8 +3147,7 @@ html[dir="ltr"] .legal-list {
   align-items: center;
   gap: 10px;
   background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+border: 1px solid rgba(255, 255, 255, 0.16);
   padding: 6px 14px;
   border-radius: var(--radius-full);
   font-size: 0.84rem;
@@ -3191,7 +3175,7 @@ html[dir="ltr"] .legal-list {
   bottom: -4px;
   border: 2px solid #22c55e;
   border-radius: 50%;
-  animation: beaconWave 2s infinite ease-out;
+  animation: none !important;
   opacity: 0;
 }
 
@@ -3212,8 +3196,7 @@ html[dir="ltr"] .legal-list {
   align-items: center;
   gap: 32px;
   white-space: nowrap;
-  animation: marqueeScroll 36s linear infinite;
-  will-change: transform;
+  animation: none !important;
 }
 
 .radar-marquee-track:hover {
@@ -3272,9 +3255,8 @@ html[dir="ltr"] .radar-marquee-track {
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  filter: blur(90px);
-  will-change: transform;
-  z-index: 0;
+  opacity: 0.5;
+z-index: 0;
 }
 
 .parallax-orb-1 {
@@ -3311,10 +3293,8 @@ html[dir="ltr"] .radar-marquee-track {
 
 .hero-spec-badge {
   position: absolute;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  background: #ffffff;
+border: 1px solid rgba(255, 255, 255, 0.8);
   padding: 10px 18px;
   border-radius: var(--radius-md);
   box-shadow: 0 16px 36px -6px rgba(9, 23, 41, 0.18), 0 0 0 1px rgba(226, 232, 240, 0.6);
@@ -3333,7 +3313,7 @@ html[dir="ltr"] .radar-marquee-track {
 .hero-spec-badge.badge-top-left {
   top: -18px;
   left: -20px;
-  animation: floatSpec1 6s ease-in-out infinite alternate;
+  animation: none !important;
 }
 
 html[dir="ltr"] .hero-spec-badge.badge-top-left {
@@ -3344,7 +3324,7 @@ html[dir="ltr"] .hero-spec-badge.badge-top-left {
 .hero-spec-badge.badge-bottom-right {
   bottom: -18px;
   right: -20px;
-  animation: floatSpec2 7s ease-in-out infinite alternate;
+  animation: none !important;
 }
 
 html[dir="ltr"] .hero-spec-badge.badge-bottom-right {
@@ -3428,7 +3408,7 @@ html[dir="ltr"] .hero-spec-badge.badge-bottom-right {
   height: 100%;
   width: 40%;
   background: linear-gradient(90deg, transparent, #1d4ed8, #06b6d4, #f59e0b, transparent);
-  animation: laserStream 3.5s linear infinite;
+  animation: none !important;
 }
 
 @keyframes laserStream {
@@ -3473,4 +3453,30 @@ html[dir="ltr"] .hero-spec-badge.badge-bottom-right {
   border-color: var(--primary-navy);
   box-shadow: 0 4px 14px rgba(9, 23, 41, 0.2);
   transform: translateY(-2px);
+}
+/* ==========================================================================
+   Zero-Lag Performance Enforcement (Hardware Scrolling Restored)
+   ========================================================================== */
+html, body {
+  scroll-behavior: auto !important;
+}
+
+.service-card,
+.feature-card-alt,
+.workflow-card,
+.video-card,
+.calc-card,
+.district-detail-card,
+.review-card,
+.nh-card {
+  transition: border-color 0.12s ease, box-shadow 0.12s ease !important;
+}
+
+.service-card:hover,
+.feature-card-alt:hover,
+.workflow-card:hover,
+.gallery-card:hover,
+.glow-border-card:hover,
+.district-detail-card:hover {
+  transform: none !important;
 }
